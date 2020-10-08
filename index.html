@@ -46,6 +46,9 @@ function imageZoom(imgID, resultID) {
   /*and also for touch screens:*/
   lens.addEventListener("touchmove", moveLens);
   img.addEventListener("touchmove", moveLens);
+  /* look for clicks */
+  lens.addEventListener("mousedown", clickLens);
+  img.addEventListener("mousedown", clickLens);
 
 
 function clickLens(e) 
