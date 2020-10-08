@@ -48,8 +48,10 @@ function imageZoom(imgID, resultID) {
   img.addEventListener("touchmove", moveLens);
 
 
-function clickLens(e) {
+function clickLens(e) 
+{
     var pos, x, y;
+	mymsg = document.getElementById("mymsg");
     /*prevent any other actions that may occur when moving over the image:*/
     e.preventDefault();
     /*get the cursor's x and y positions:*/
@@ -67,7 +69,7 @@ function clickLens(e) {
     lens.style.top = y + "px";
     /*display what the lens "sees":*/
     result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
-
+    mymsg.textContent = "click happened"
 }
 
 
@@ -121,7 +123,7 @@ function clickLens(e) {
 <p>The image must be placed inside a container with relative positioning.</p>
 <p>The result can be put anywhere on the page, but must have the class name "img-zoom-result".</p>
 <p>Make sure both the image and the result have IDs. These IDs are used when a javaScript initiates the zoom effect.</p>
-
+<p id="mymsg">default message</p>
 <script>
 // Initiate zoom effect:
 imageZoom("myimage", "myresult");
