@@ -144,12 +144,17 @@ var lines = [];
 
 // Initiate zoom effect:
 $(document).ready(function() {
+  /*
     $.ajax({
         type: "GET",
-        url: "embryo_map.csv",
+        url: "https://github.com/murraym678/murraym678.github.io/embryo_map.csv",
         dataType: "text",
         success: function(data) {processData(data);}
      });
+     */
+    $("p").click(function(){
+      $(this).hide();
+    });
 });
 
 function processData(allText) {
