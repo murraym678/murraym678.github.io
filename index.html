@@ -21,8 +21,15 @@
   border: 1px solid #d4d4d4;
   /*set the size of the result div:*/
   width: 300px;
-  height: 150px;
+  height: 300px;
 }
+.img-stack {
+  border: 5px solid #1862d1;
+  /*set the size of the result div:*/
+  width: 600px;
+  height: 300px;
+}
+
 </style>
 <script>
 function imageZoom(imgID, resultID) {
@@ -72,7 +79,9 @@ function clickLens(e)
     lens.style.top = y + "px";
     /*display what the lens "sees":*/
     result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
-    mymsg.textContent = String(x) + String(y)
+    mymsg.textContent = String(x) + "  " + String(y)
+	mystack = document.getElementById("mystack");
+	mystack.src = "images/PNG/emb002.png"
 }
 
 
@@ -121,12 +130,10 @@ function clickLens(e)
 <div class="img-zoom-container">
   <img id="myimage" src="images/bigSlide2.jpg" width="600" height="240">
   <div id="myresult" class="img-zoom-result"></div>
-</div>
+  <p id="mymsg">default mmessage</p>
+  <img id="mystack" src="" class="img-stack">   </img>
+  </div>
 
-<p>The image must be placed inside a container with relative positioning.</p>
-<p>The result can be put anywhere on the page, but must have the class name "img-zoom-result".</p>
-<p>Make sure both the image and the result have IDs. These IDs are used when a javaScript initiates the zoom effect.</p>
-<p id="mymsg">default message</p>
 <script>
 // Initiate zoom effect:
 imageZoom("myimage", "myresult");
