@@ -31,7 +31,12 @@
 }
 
 </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+
 <script>
+
 function imageZoom(imgID, resultID) {
   var img, lens, result, cx, cy;
   img = document.getElementById(imgID);
@@ -135,7 +140,38 @@ function clickLens(e)
   </div>
 
 <script>
+var lines = [];
+
 // Initiate zoom effect:
+$(document).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: "embryo_map.csv",
+        dataType: "text",
+        success: function(data) {processData(data);}
+     });
+});
+
+function processData(allText) {
+    var allTextLines = allText.split(/\r\n|\n/);
+    var headers = allTextLines[0].split(',');
+
+    for (var i=1; i<allTextLines.length; i++) {
+        var data = allTextLines[i].split(',');
+        if (data.length == headers.length) {
+
+            var tarr = [];
+            for (var j=0; j<headers.length; j++) {
+                tarr.push(headers[j]+":"+data[j]);
+            }
+            lines.push(tarr);
+        }
+    }
+    // alert(lines);
+	mymsg = document.getElementById("mymsg");
+	mymsg.textContent = lines[0]
+ 
+}   	          
 imageZoom("myimage", "myresult");
 </script>
 
