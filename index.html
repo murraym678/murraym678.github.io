@@ -144,17 +144,18 @@ var lines = [];
 
 // Initiate zoom effect:
 $(document).ready(function() {
-  /*
+  
     $.ajax({
         type: "GET",
-        url: "https://github.com/murraym678/murraym678.github.io/embryo_map.csv",
+        url: "embryo_map.html",
         dataType: "text",
         success: function(data) {processData(data);}
      });
-     */
+    /*
     $("p").click(function(){
       $(this).hide();
     });
+    */
 });
 
 function processData(allText) {
@@ -174,7 +175,7 @@ function processData(allText) {
     }
     // alert(lines);
 	mymsg = document.getElementById("mymsg");
-	mymsg.textContent = lines[0]
+	mymsg.textContent = "fred";
  
 }   	          
 imageZoom("myimage", "myresult");
