@@ -109,7 +109,9 @@ function clickEmbryo(e)
     mymsg.textContent = msgString;
 
 	mymp4 = document.getElementById("my_mp4");
-	mymp4.src = "images/mp4/"+lines[minDistIndex][0]+".mp4";
+  mp4str = "images/mp4/"+lines[minDistIndex][0]+".mp4"
+	mymp4.src = mp4str;
+  mymsg.textContent = mp4str;
 }
 
 
