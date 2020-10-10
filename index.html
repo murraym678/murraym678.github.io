@@ -95,7 +95,7 @@ function clickEmbryo(e)
        }
        if (dist<minDist) {
          minDist=dist;
-         minDistIndex = e;
+         minDistIndex = i;
        }
     }
     
@@ -105,11 +105,11 @@ function clickEmbryo(e)
     //msgString += "[0][0]="+lines[0][0]+"[0][1]="+lines[0][1]+" [1][3]"+lines[1][3];
     mymsg = document.getElementById("mymsg");
    // fname = lines[i].File
-    mymsg.textContent = "Closest embryo is "+String(minDistIndex)+"  "+fname
+    //mymsg.textContent = "Closest embryo is "+String(minDistIndex)+"  "+fname
     mymsg.textContent = msgString;
 
 	mystack = document.getElementById("mystack");
-	mystack.src = "images/gif/"+fname+".gif";
+	mystack.src = "images/gif/"+lines[minDistIndex][0]+".gif";
 }
 
 
