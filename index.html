@@ -133,7 +133,7 @@ function clickLens(e)
 <p>Mouse over the image:</p>
 
 <div class="img-zoom-container">
-  <img id="myimage" src="images/bigSlide2.jpg" width="600" height="240">
+  <img id="myimage" src="images/slide_000.jpg" width="600" height="240">
   <div id="myresult" class="img-zoom-result"></div>
   <p id="mymsg">default mmessage</p>
   <img id="mystack" src="" class="img-stack">   </img>
@@ -147,7 +147,7 @@ $(document).ready(function() {
   
     $.ajax({
         type: "GET",
-        url: "embryo_map.html",
+        url: "embryo_map_000.html",
         dataType: "text",
         success: function(data) {processData(data);}
      });
