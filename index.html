@@ -90,7 +90,7 @@ function clickEmbryo(e)
        dist = Math.sqrt(dsqrd);
        dists.push(dist);
        if (i==0) {
-         msgString += xval+","+yval+","+dx+","+dy+" dsqrd="+dsqrd+" dist="+dist;
+//         msgString += xval+","+yval+","+dx+","+dy+" dsqrd="+dsqrd+" dist="+dist;
 //         msgString += "xval="+String(xval)+" = "+String(dist)+"\n";
        }
        if (dist<minDist) {
@@ -197,8 +197,8 @@ function clickEmbryo(e)
 <div class="img-zoom-container">
   <table>
     <tr>
-      <td>
-  <img id="myimage" src="images/slide_001.jpg" width="600" height="240">
+      <td colspan="2">
+  <img id="myimage" src="images/slide_001.jpg" width="1074" height="411">
 </td>
 </tr>
 <tr>
@@ -210,7 +210,7 @@ function clickEmbryo(e)
 </td>
 </tr>
 <tr>
-  <td>
+  <td colspan="2"> 
   <p id="mymsg">default mmessage</p>
 </td>
 </tr>
