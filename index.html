@@ -37,6 +37,8 @@
 
 <script>
 
+var lines = [];
+
 function imageZoom(imgID, resultID) {
   var img, lens, result, cx, cy;
   img = document.getElementById(imgID);
@@ -59,34 +61,41 @@ function imageZoom(imgID, resultID) {
   lens.addEventListener("touchmove", moveLens);
   img.addEventListener("touchmove", moveLens);
   /* look for clicks */
-  lens.addEventListener("mousedown", clickLens);
-  img.addEventListener("mousedown", clickLens);
+  lens.addEventListener("mousedown", clickEmbryo);
+  img.addEventListener("mousedown", clickEmbryo);
 
 
-function clickLens(e) 
+function clickEmbryo(e) 
 {
-    var pos, x, y;
-	mymsg = document.getElementById("mymsg");
-    /*prevent any other actions that may occur when moving over the image:*/
-    e.preventDefault();
-    /*get the cursor's x and y positions:*/
+    var pos, xval, yval, fname;
+    var dists;
+
+	  e.preventDefault();
     pos = getCursorPos(e);
-    /*calculate the position of the lens:*/
-    x = pos.x - (lens.offsetWidth / 2);
-    y = pos.y - (lens.offsetHeight / 2);
-    /*prevent the lens from being positioned outside the image:*/
-    if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
-    if (x < 0) {x = 0;}
-    if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
-    if (y < 0) {y = 0;}
-    /*set the position of the lens:*/
-    lens.style.left = x + "px";
-    lens.style.top = y + "px";
-    /*display what the lens "sees":*/
-    result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
-    mymsg.textContent = String(x) + "  " + String(y)
+
+    dists = [];
+    minDist = 100000000;
+    minDistIndex = -1;
+    for (var i=0; i<lines.length; i++) 
+    {
+       xval = lines[i].x;
+       yval = lines[i].y;
+       dx = xval - pos.x;
+       dy = yval - pos.y;
+
+       dist = Math.sqrt(dx*dx + dy*dy);
+       dists.push(dist);
+       if (dist<minDist) {
+         minDist=dist;
+         minDistIndex = e;
+       }
+    }
+    mymsg = document.getElementById("mymsg");
+    fname = lines[i].File
+    mymsg.textContent = "Closest embryo is "+String(minDistIndex)+"  "+fname
+
 	mystack = document.getElementById("mystack");
-	mystack.src = "images/PNG/emb002.png"
+	mystack.src = "images/gif/"+fname+".gif"
 }
 
 
@@ -124,7 +133,46 @@ function clickLens(e)
     return {x : x, y : y};
   }
 }
-</script>
+  
+  // Initiate zoom effect:
+  $(document).ready(function() {
+    
+      $.ajax({
+          type: "GET",
+          url: "embryo_map_000.html",
+          dataType: "text",
+          success: function(data) {processData(data);}
+       });
+      /*
+      $("p").click(function(){
+        $(this).hide();
+      });
+      */
+  });
+  
+  function processData(allText) {
+      var allTextLines = allText.split(/\r\n|\n/);
+      var headers = allTextLines[0].split(',');
+  
+      for (var i=1; i<allTextLines.length; i++) {
+          var data = allTextLines[i].split(',');
+          if (data.length == headers.length) {
+  
+              var tarr = [];
+              for (var j=0; j<headers.length; j++) {
+                  tarr.push(headers[j]+":"+data[j]);
+              }
+              lines.push(tarr);
+          }
+      }
+      // alert(lines);
+    mymsg = document.getElementById("mymsg");
+    mymsg.textContent = lines[1];
+   
+  }   	          
+  imageZoom("myimage", "myresult");
+  </script>
+  
 </head>
 <body>
 
@@ -139,47 +187,6 @@ function clickLens(e)
   <img id="mystack" src="" class="img-stack">   </img>
   </div>
 
-<script>
-var lines = [];
-
-// Initiate zoom effect:
-$(document).ready(function() {
-  
-    $.ajax({
-        type: "GET",
-        url: "embryo_map_000.html",
-        dataType: "text",
-        success: function(data) {processData(data);}
-     });
-    /*
-    $("p").click(function(){
-      $(this).hide();
-    });
-    */
-});
-
-function processData(allText) {
-    var allTextLines = allText.split(/\r\n|\n/);
-    var headers = allTextLines[0].split(',');
-
-    for (var i=1; i<allTextLines.length; i++) {
-        var data = allTextLines[i].split(',');
-        if (data.length == headers.length) {
-
-            var tarr = [];
-            for (var j=0; j<headers.length; j++) {
-                tarr.push(headers[j]+":"+data[j]);
-            }
-            lines.push(tarr);
-        }
-    }
-    // alert(lines);
-	mymsg = document.getElementById("mymsg");
-	mymsg.textContent = lines[1];
- 
-}   	          
-imageZoom("myimage", "myresult");
-</script>
 
 </body>
 </html>
