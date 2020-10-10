@@ -153,7 +153,7 @@ function clickEmbryo(e)
     
       $.ajax({
           type: "GET",
-          url: "embryo_map_000.html",
+          url: "embryo_map_001.html",
           dataType: "text",
           success: function(data) {processData(data);}
        });
@@ -190,15 +190,31 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>Image Zoom v13</h1>
+<h1>Image Zoom v14</h1>
 
 <p>Mouse over the image:</p>
 
 <div class="img-zoom-container">
-  <img id="myimage" src="images/slide_000.jpg" width="600" height="240">
+  <table>
+    <tr>
+      <td>
+  <img id="myimage" src="images/slide_001.jpg" width="600" height="240">
+</td>
+</tr>
+<tr>
+  <td>
   <div id="myresult" class="img-zoom-result"></div>
-  <p id="mymsg">default mmessage</p>
+  </td>
+<td>
   <img id="mystack" src="" class="img-stack">   </img>
+</td>
+</tr>
+<tr>
+  <td>
+  <p id="mymsg">default mmessage</p>
+</td>
+</tr>
+</table>
   </div>
 
   <script>
