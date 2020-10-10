@@ -79,6 +79,7 @@ function clickEmbryo(e)
     minDistIndex = -1;
     msgString += "lines.length ="+String(lines.length)+"\n";
     msgString += "CLICK("+String(pos.x)+","+String(pos.y)+") ";
+    /*
     for (var i=0; i<lines.length; i++) 
     {
        xval = lines[i].x;
@@ -97,7 +98,9 @@ function clickEmbryo(e)
          minDistIndex = e;
        }
     }
-    msgString += "Closest:"+String(minDistIndex)+"  "+String(minDist)+"\n";
+    */
+    //msgString += "Closest:"+String(minDistIndex)+"  "+String(minDist)+"\n";
+    msgString += "lines[0].x="+lines[0].x+" String_version =",String(lines[0].x);
 
     mymsg = document.getElementById("mymsg");
    // fname = lines[i].File
@@ -185,7 +188,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>Image Zoom v9</h1>
+<h1>Image Zoom v8</h1>
 
 <p>Mouse over the image:</p>
 
