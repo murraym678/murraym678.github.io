@@ -82,8 +82,8 @@ function clickEmbryo(e)
     
     for (var i=0; i<lines.length; i++) 
     {
-      xval = Number(lines[i][1]);
-      yval = Number(lines[i][2]);
+      xval = Number(lines[i][1])/2;
+      yval = Number(lines[i][2])/2;
        dx = xval - pos.x;
        dy = yval - pos.y;
        dsqrd = dx*dx + dy*dy;
@@ -190,7 +190,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>Image Zoom v14</h1>
+<h1>Image Zoom v15</h1>
 
 <p>Mouse over the image:</p>
 
