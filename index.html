@@ -91,11 +91,12 @@ function clickEmbryo(e)
        }
     }
     mymsg = document.getElementById("mymsg");
-    fname = lines[i].File
-    mymsg.textContent = "Closest embryo is "+String(minDistIndex)+"  "+fname
+   // fname = lines[i].File
+//    mymsg.textContent = "Closest embryo is "+String(minDistIndex)+"  "+fname
+    mymsg.textContent = "Closest embryo is "+String(minDistIndex)+"  "+String(minDist);
 
 	mystack = document.getElementById("mystack");
-	mystack.src = "images/gif/"+fname+".gif"
+	mystack.src = "images/gif/"+fname+".gif";
 }
 
 
@@ -175,7 +176,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>Image Zoom v5</h1>
+<h1>Image Zoom v6</h1>
 
 <p>Mouse over the image:</p>
 
