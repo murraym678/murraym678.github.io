@@ -77,13 +77,13 @@ function clickEmbryo(e)
     dists = [];
     minDist = 100000000;
     minDistIndex = -1;
-    msgString += "lines.length ="+String(lines.length)+"\n";
-    msgString += "CLICK("+String(pos.x)+","+String(pos.y)+") ";
-    /*
+    //msgString += "lines.length ="+String(lines.length)+"\n";
+    //msgString += "CLICK("+String(pos.x)+","+String(pos.y)+") ";
+    
     for (var i=0; i<lines.length; i++) 
     {
-       xval = lines[i].x;
-       yval = lines[i].y;
+      xval = Number(lines[i][1]);
+      yval = Number(lines[i][2]);
        dx = xval - pos.x;
        dy = yval - pos.y;
        dsqrd = dx*dx + dy*dy;
@@ -99,7 +99,7 @@ function clickEmbryo(e)
        }
     }
     */
-    //msgString += "Closest:"+String(minDistIndex)+"  "+String(minDist)+"\n";
+    msgString += "Closest:"+String(minDistIndex)+"  "+String(minDist)+"\n";
    //msgString += "lines[0].x="+lines[0].x+" String_version =",String(lines[0].x);
 
     msgString += "[0][0]="+lines[0][0]+"[0][1]="+lines[0][1]+" [1][3]"+lines[1][3];
@@ -174,7 +174,8 @@ function clickEmbryo(e)
   
               var tarr = [];
               for (var j=0; j<headers.length; j++) {
-                  tarr.push(headers[j]+":"+data[j]);
+//                  tarr.push(headers[j]+":"+data[j]);
+                  tarr.push(data[j]);
               }
               lines.push(tarr);
           }
@@ -189,7 +190,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>Image Zoom v10</h1>
+<h1>Image Zoom v11</h1>
 
 <p>Mouse over the image:</p>
 
