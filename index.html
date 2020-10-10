@@ -69,6 +69,7 @@ function clickEmbryo(e)
 {
     var pos, xval, yval, fname;
     var dists;
+    var msgString = "default";
 
 	  e.preventDefault();
     pos = getCursorPos(e);
@@ -76,6 +77,8 @@ function clickEmbryo(e)
     dists = [];
     minDist = 100000000;
     minDistIndex = -1;
+    msgString += "lines.length ="+String(lines.length)+"\n";
+    msgString += "xpos,ypos ="+String(pos.x)+","+String(pos.y);
     for (var i=0; i<lines.length; i++) 
     {
        xval = lines[i].x;
@@ -85,15 +88,20 @@ function clickEmbryo(e)
 
        dist = Math.sqrt(dx*dx + dy*dy);
        dists.push(dist);
+       if (i==0) {
+         msgString += "Dist of element"+String(i)+" = "+String(dist)+"\n";
+       }
        if (dist<minDist) {
          minDist=dist;
          minDistIndex = e;
        }
     }
+    msgString += "Closest:"+String(minDistIndex)+"  "+String(minDist)+"\n";
+
     mymsg = document.getElementById("mymsg");
    // fname = lines[i].File
 //    mymsg.textContent = "Closest embryo is "+String(minDistIndex)+"  "+fname
-    mymsg.textContent = "Closest embryo is "+String(minDistIndex)+"  "+String(minDist);
+    mymsg.textContent = msgString;
 
 	mystack = document.getElementById("mystack");
 	mystack.src = "images/gif/"+fname+".gif";
@@ -176,7 +184,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>Image Zoom v6</h1>
+<h1>Image Zoom v7</h1>
 
 <p>Mouse over the image:</p>
 
