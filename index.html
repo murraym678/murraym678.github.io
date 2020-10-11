@@ -194,9 +194,9 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>Image Zoom v20</h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical</h1>
 
-<p>Mouse over the image:</p>
+<p>Use your mouse to move around the slide. Click on an embryo to get a close up view. Use the Channel buttons to see the colors separately:</p>
 
 <div class="img-zoom-container">
   <table>
@@ -210,10 +210,20 @@ function clickEmbryo(e)
   <div id="myresult" class="img-zoom-result"></div>
   </td>
 <td>
-  <video id = "my_video" width="320" height="240" controls>
+  <table>
+    <tr>
+      <td> Embryo ID </td>
+      <td><button type="button">betaGAL</button></td>
+      <td><button type="button">EVE</button></td>
+      <td><button type="button">BOTH</button></td>
+    </tr>
+    <tr>
+  <video id = "my_video" width="320" height="240" controls autoplay>
     <source id="my_mp4" src="images/mp4/stg5.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+  </tr>
+</table>
 </td>
 </tr>
 <tr>
