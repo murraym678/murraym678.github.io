@@ -275,12 +275,12 @@ function clickEmbryo(e)
     myGif = document.getElementsByName("my_gif");
       if (radioButtons[0].checked == true) {
         mp4_ok = true;
-        myVideo.style.display="inline";
-        myGif.style.display="none";
+        myVideo.style["display"]="inline";
+        myGif.style["display"]="none";
       } else { // radioButtons[1] should be checked
         mp4_ok = false;
-        myVideo.style.display="none";
-        myGif.style.display="inline";
+        myVideo.style["display"]="none";
+        myGif.style["display"]="inline";
       }
       changeVideo();
   }
