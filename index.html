@@ -41,7 +41,7 @@ var lines = [];
 var channels = 2; // 0=bgal, 1=eve, 2=both
 var currEmbryoId = 0;
 
-function imageZoom(imgID, resultID) 
+function imageZoom(imgID, resultID) {
 
   var img, lens, result, cx, cy;
   img = document.getElementById(imgID);
@@ -72,8 +72,6 @@ function printMessage(msgStr){
   str = mymsg.textContent;
   mymsg.textContent = str+msgStr
 }
-
-
 
 function changeVideo()
 {
@@ -236,7 +234,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical</h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v1</h1>
 
 <p>Use your mouse to move around the slide. Click on an embryo to get a close up view. Use the Channel buttons to see the colors separately:</p>
 
@@ -284,7 +282,7 @@ function clickEmbryo(e)
   <script>
   imageZoom("myimage", "myresult");
   </script>
-
+<!--
 <h2>gif</h2>
 <img src="images/gif/emb0.gif">
 </img>
@@ -306,6 +304,7 @@ function clickEmbryo(e)
   <source id="my_mp4" src="images/webm/emb0.webm" type="video/webm">
     Your browser does not support the video tag.
 </video>
+-->
 
 </body>
 </html>
