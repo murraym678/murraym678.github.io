@@ -205,7 +205,9 @@ function clickEmbryo(e)
    
   }
 
-  function channelChanged(){
+  function channelChanged()
+  {
+
     var radioButtons = document.getElementsByName("channels");
       if (radioButtons[0].checked == true) {
         channels = 0;
@@ -213,7 +215,6 @@ function clickEmbryo(e)
         channels = 1;
       } else // radioButtons[2] should be checked
         channels = 2;
-      }
       changeVideo();
   }
 </script>      
