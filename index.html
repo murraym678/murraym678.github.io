@@ -20,14 +20,8 @@
 .img-zoom-result {
   border: 1px solid #d4d4d4;
   /*set the size of the result div:*/
-  width: 300px;
-  height: 300px;
-}
-.img-stack {
-  border: 5px solid #1862d1;
-  /*set the size of the result div:*/
-  width: 600px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
 }
 
 </style>
@@ -254,7 +248,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v10 </h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v11 </h1>
 
 <p>Use your mouse to move around the slide. Click on an embryo to get a close up view. Use the Channel buttons to see the colors separately:</p>
 
@@ -262,7 +256,7 @@ function clickEmbryo(e)
   <table>
     <tr>
       <td colspan="2">
-  <img id="myimage" src="images/slide_004.jpg" width="716" height="274">
+  <img id="myimage" src="images/slide_004.jpg" width="1074" height="411">
 </td>
 </tr>
 <tr>
@@ -272,7 +266,7 @@ function clickEmbryo(e)
 <td>
   <table>
     <tr>
-      <td> <p id="EmbryoID">Embryo ID:</p> </td>
+      <td> <h1 id="EmbryoID">Embryo ID:</p> </td>
       <td>
       <input type="radio" id="bgal" name="channels" onchange="channelChanged()"; value="bgal">
           <label for="bgal">beta-Galactosidase</label><br>
@@ -284,8 +278,8 @@ function clickEmbryo(e)
     </tr>
     <tr>
       <td>
-  <video id = "my_video" width="320" height="240" controls autoplay>
-    <source id="my_mp4" src="images/mp4/stg5.mp4" type="video/mp4">
+  <video id = "my_video" width="640" height="480" controls autoplay>
+    <source id="my_mp4" src="images/mp4/emb0.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 </td>
