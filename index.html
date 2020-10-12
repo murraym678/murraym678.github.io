@@ -13,8 +13,8 @@
   position: absolute;
   border: 1px solid #d4d4d4;
   /*set the size of the lens:*/
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
 }
 
 .img-zoom-result {
@@ -23,6 +23,18 @@
   width: 200px;
   height: 200px;
 }
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  border-spacing: 1px;
+  background-color: #f1f1c1;
+}
+th, td {
+  padding: 3px;
+}
+</style>
 
 </style>
 
@@ -250,26 +262,81 @@ function clickEmbryo(e)
 
 <h1>GENE30004 <em>Drosophila</em> Development Practical v11 </h1>
 
-<p>Use your mouse to move around the slide. Click on an embryo to get a close up view. Use the Channel buttons to see the colors separately:</p>
+<p>Use your mouse to move the box around the slide. 
+  The embryo under the box will be shown in more detail below. 
+  Use the Channel buttons to see the bgal or eve stains , or see both together.</p>
 
 <div class="img-zoom-container">
+  <table>
+    <tr>
+      <td colspan="2">
   <img id="myimage" src="images/slide_004.jpg" width="1074" height="411">
+</td>
+</tr>
+<tr>
+  <td>
   <div id="myresult" class="img-zoom-result"></div>
-   <h1 id="EmbryoID">Embryo ID:</p>
+  </td>
+<td>
+  <table>
+    <tr>
+      <td> <h1 id="EmbryoID">Embryo ID:</p> </td>
+      <td>
+        <p>
       <input type="radio" id="bgal" name="channels" onchange="channelChanged()"; value="bgal">
           <label for="bgal">beta-Galactosidase</label><br>
           <input type="radio" id="eve" name="channels" onchange="channelChanged()"; vvalue="eve">
           <label for="eve">Even-skipped</label><br>
           <input type="radio" id="both" name="channels" onchange="channelChanged()"; vvalue="both" checked>
           <label for="both">Both channels</label>
-      
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
   <video id = "my_video" width="640" height="480" controls autoplay>
     <source id="my_mp4" src="images/mp4/emb0.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+</td>
+  </tr>
+</table>
+</td>
+</tr>
+<tr>
+  <td colspan="2"> 
   <p id="mymsg">default mmessage</p>
+</td>
+</tr>
+</table>
   </div>
 
   <script>
   imageZoom("myimage", "myresult");
   </script>
+<!--
+<h2>gif</h2>
+<img src="images/gif/emb0.gif">
+</img>
+
+<h2>mp4</h2>
+<video id = "my_video" width="320" height="240" controls autoplay>
+  <source id="my_mp4" src="images/mp4/emb0.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<h2>ogg</h2>
+<video id = "my_video" width="320" height="240" controls autoplay>
+  <source id="my_mp4" src="images/ogg/emb0.ogg" type="video/ogg">
+    Your browser does not support the video tag.
+</video>
+
+<h2>webm</h2>
+<video id = "my_video" width="320" height="240" controls autoplay>
+  <source id="my_mp4" src="images/webm/emb0.webm" type="video/webm">
+    Your browser does not support the video tag.
+</video>
+-->
+
+</body>
+</html>
