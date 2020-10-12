@@ -41,6 +41,33 @@ var lines = [];
 var channels = 2; // 0=bgal, 1=eve, 2=both
 var currEmbryoId = 0;
 
+
+function printMessage(msgStr)
+{
+  mymsg = document.getElementById("mymsg");
+  str = mymsg.textContent;
+  mymsg.textContent = str+msgStr
+}
+
+function changeVideo()
+{
+	mymp4 = document.getElementById("my_mp4");
+  if (channels==0) {
+    mp4str = "images/mp4/C1-"+lines[currEmbryoId][0]+".mp4"
+
+  } else if (channels==1) {
+    mp4str = "images/mp4/C2-"+lines[currEmbryoId][0]+".mp4"
+
+  } else {  // channels must be 2
+    mp4str = "images/mp4/"+lines[currEmbryoId][0]+".mp4"
+  }
+	mymp4.src = mp4str;
+  mymsg.textContent = mp4str;
+  myvideo = document.getElementById("my_video");
+  myvideo.load();  
+}
+
+
 function imageZoom(imgID, resultID) {
 
   var img, lens, result, cx, cy;
@@ -67,30 +94,6 @@ function imageZoom(imgID, resultID) {
   lens.addEventListener("mousedown", clickEmbryo);
   img.addEventListener("mousedown", clickEmbryo);
 
-function printMessage(msgStr)
-{
-  mymsg = document.getElementById("mymsg");
-  str = mymsg.textContent;
-  mymsg.textContent = str+msgStr
-}
-
-function changeVideo()
-{
-	mymp4 = document.getElementById("my_mp4");
-  if (channels==0) {
-    mp4str = "images/mp4/C1-"+lines[currEmbryoId][0]+".mp4"
-
-  } else if (channels==1) {
-    mp4str = "images/mp4/C2-"+lines[currEmbryoId][0]+".mp4"
-
-  } else {  // channels must be 2
-    mp4str = "images/mp4/"+lines[currEmbryoId][0]+".mp4"
-  }
-	mymp4.src = mp4str;
-  mymsg.textContent = mp4str;
-  myvideo = document.getElementById("my_video");
-  myvideo.load();  
-}
 
 
 function clickEmbryo(e) 
@@ -235,7 +238,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v2 </h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v3 </h1>
 
 <p>Use your mouse to move around the slide. Click on an embryo to get a close up view. Use the Channel buttons to see the colors separately:</p>
 
