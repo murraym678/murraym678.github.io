@@ -38,6 +38,8 @@
 <script>
 
 var lines = [];
+var channels = 2; // 0=bgal, 1=eve, 2=both
+var currEmbryoId = 0;
 
 function imageZoom(imgID, resultID) {
   var img, lens, result, cx, cy;
@@ -63,6 +65,24 @@ function imageZoom(imgID, resultID) {
   /* look for clicks */
   lens.addEventListener("mousedown", clickEmbryo);
   img.addEventListener("mousedown", clickEmbryo);
+
+function changeVideo()
+{
+	mymp4 = document.getElementById("my_mp4");
+  if (channels==0) {
+    mp4str = "images/mp4/C1-"+lines[currEmbryoId][0]+".mp4"
+
+  } else if (channels==1) {
+    mp4str = "images/mp4/C2-"+lines[currEmbryoId][0]+".mp4"
+
+  } else {  // channels must be 2
+    mp4str = "images/mp4/"+lines[currEmbryoId][0]+".mp4"
+  }
+	mymp4.src = mp4str;
+  mymsg.textContent = mp4str;
+  myvideo = document.getElementById("my_video");
+  myvideo.load();  
+}
 
 
 function clickEmbryo(e) 
@@ -107,13 +127,8 @@ function clickEmbryo(e)
    // fname = lines[i].File
     //mymsg.textContent = "Closest embryo is "+String(minDistIndex)+"  "+fname
     mymsg.textContent = msgString;
-
-	mymp4 = document.getElementById("my_mp4");
-  mp4str = "images/mp4/"+lines[minDistIndex][0]+".mp4"
-	mymp4.src = mp4str;
-  mymsg.textContent = mp4str;
-  myvideo = document.getElementById("my_video");
-  myvideo.load();
+    currEmbryoId = minDistIndex;
+    changeVideo();
 }
 
 
@@ -189,6 +204,18 @@ function clickEmbryo(e)
     mymsg.textContent = lines[1];
    
   }
+
+  function channelChanged(){
+    var radioButtons = document.getElementsByName("channels");
+      if (radioButtons[0].checked == true) {
+        channels = 0;
+      } else if (radioButtons[1].checked == true) {
+        channels = 1;
+      } else // radioButtons[2] should be checked
+        channels = 2;
+      }
+      changeVideo();
+  }
 </script>      
   
 </head>
@@ -213,9 +240,14 @@ function clickEmbryo(e)
   <table>
     <tr>
       <td> Embryo ID </td>
-      <td><button type="button">betaGAL</button></td>
-      <td><button type="button">EVE</button></td>
-      <td><button type="button">BOTH</button></td>
+      <td>
+      <input type="radio" id="bgal" name="channels" onchange="channelChanged(); value="bgal">
+          <label for="bgal">beta-Galactosidase</label><br>
+          <input type="radio" id="eve" name="channels" onchange="channelChanged(); vvalue="eve">
+          <label for="eve">Even-skipped</label><br>
+          <input type="radio" id="both" name="channels" onchange="channelChanged(); vvalue="both" checked>
+          <label for="both">Both channels</label>
+      </td>
     </tr>
     <tr>
   <video id = "my_video" width="320" height="240" controls autoplay>
