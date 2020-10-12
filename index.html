@@ -270,8 +270,8 @@ function clickEmbryo(e)
   function mp4_or_gif_changed()
   {
     var radioButtons = document.getElementsByName("mp4_or_gif");
-    var vidDiv = document.getElementsById("video_division");
-    var myGif = document.getElementsById("my_gif");
+    var vidDiv = document.getElementById("video_division");
+    var myGif = document.getElementById("my_gif");
       if (radioButtons[0].checked == true) {
         mp4_ok = true;
         vidDiv.style["display"]="inline";
