@@ -271,10 +271,16 @@ function clickEmbryo(e)
   {
     var radioButtons = document.getElementsByName("mp4_or_gif");
 
+    myVideo = document.getElementsByName("my_video");
+    myGif = document.getElementsByName("my_gif");
       if (radioButtons[0].checked == true) {
         mp4_ok = true;
+        myVideo.style.display="inline";
+        myGif.style.display="none";
       } else { // radioButtons[1] should be checked
         mp4_ok = false;
+        myVideo.style.display="none";
+        myGif.style.display="inline";
       }
       changeVideo();
   }
@@ -331,7 +337,7 @@ function clickEmbryo(e)
     <source id="my_mp4" src="images/mp4/emb0.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-  <img id="my_gif" src="images/gif/emb0.gif" display="inline"> </img>
+  <img id="my_gif" src="images/gif/emb0.gif" display="none"> </img>
 </td>
 </tr>
 <tr>
