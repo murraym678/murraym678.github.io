@@ -41,7 +41,8 @@ var lines = [];
 var channels = 2; // 0=bgal, 1=eve, 2=both
 var currEmbryoId = 0;
 
-function imageZoom(imgID, resultID) {
+function imageZoom(imgID, resultID) 
+
   var img, lens, result, cx, cy;
   img = document.getElementById(imgID);
   result = document.getElementById(resultID);
@@ -65,6 +66,14 @@ function imageZoom(imgID, resultID) {
   /* look for clicks */
   lens.addEventListener("mousedown", clickEmbryo);
   img.addEventListener("mousedown", clickEmbryo);
+
+function printMessage(msgStr){
+  mymsg = document.getElementById("mymsg");
+  str = mymsg.textContent;
+  mymsg.textContent = str+msgStr
+}
+
+
 
 function changeVideo()
 {
@@ -207,14 +216,19 @@ function clickEmbryo(e)
 
   function channelChanged()
   {
-
+    printMessage("CH_BUT")
     var radioButtons = document.getElementsByName("channels");
+
       if (radioButtons[0].checked == true) {
+        printMessage("0")
         channels = 0;
       } else if (radioButtons[1].checked == true) {
+        printMessage("1")
         channels = 1;
-      } else // radioButtons[2] should be checked
+      } else { // radioButtons[2] should be checked
+        printMessage("2")
         channels = 2;
+      }
       changeVideo();
   }
 </script>      
