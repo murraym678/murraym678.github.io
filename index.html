@@ -147,6 +147,8 @@ function clickEmbryo(e)
     mymsg.textContent = msgString;
     currEmbryoId = minDistIndex;
     changeVideo();
+    embIdMsg = document.getElementById("EmbryoID");
+    embIdMsg.textContent = "Embryo ID:"+String(minDistIndex);
 }
 
 
@@ -248,7 +250,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v6 </h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v8 </h1>
 
 <p>Use your mouse to move around the slide. Click on an embryo to get a close up view. Use the Channel buttons to see the colors separately:</p>
 
@@ -266,7 +268,7 @@ function clickEmbryo(e)
 <td>
   <table>
     <tr>
-      <td> Embryo ID </td>
+      <td> <p id="EmbryoID">Embryo ID:</p> </td>
       <td>
       <input type="radio" id="bgal" name="channels" onchange="channelChanged()"; value="bgal">
           <label for="bgal">beta-Galactosidase</label><br>
@@ -277,10 +279,12 @@ function clickEmbryo(e)
       </td>
     </tr>
     <tr>
+      <td>
   <video id = "my_video" width="320" height="240" controls autoplay>
     <source id="my_mp4" src="images/mp4/stg5.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+</td>
   </tr>
 </table>
 </td>
