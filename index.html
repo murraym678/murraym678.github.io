@@ -117,8 +117,8 @@ function clickEmbryo(e)
     
     for (var i=0; i<lines.length; i++) 
     {
-      xval = Number(lines[i][1])/3;
-      yval = Number(lines[i][2])/3;
+      xval = Number(lines[i][1])/2;
+      yval = Number(lines[i][2])/2;
        dx = xval - pos.x;
        dy = yval - pos.y;
        dsqrd = dx*dx + dy*dy;
@@ -253,74 +253,23 @@ function clickEmbryo(e)
 <p>Use your mouse to move around the slide. Click on an embryo to get a close up view. Use the Channel buttons to see the colors separately:</p>
 
 <div class="img-zoom-container">
-  <table>
-    <tr>
-      <td colspan="2">
   <img id="myimage" src="images/slide_004.jpg" width="1074" height="411">
-</td>
-</tr>
-<tr>
-  <td>
   <div id="myresult" class="img-zoom-result"></div>
-  </td>
-<td>
-  <table>
-    <tr>
-      <td> <h1 id="EmbryoID">Embryo ID:</p> </td>
-      <td>
+   <h1 id="EmbryoID">Embryo ID:</p>
       <input type="radio" id="bgal" name="channels" onchange="channelChanged()"; value="bgal">
           <label for="bgal">beta-Galactosidase</label><br>
           <input type="radio" id="eve" name="channels" onchange="channelChanged()"; vvalue="eve">
           <label for="eve">Even-skipped</label><br>
           <input type="radio" id="both" name="channels" onchange="channelChanged()"; vvalue="both" checked>
           <label for="both">Both channels</label>
-      </td>
-    </tr>
-    <tr>
-      <td>
+      
   <video id = "my_video" width="640" height="480" controls autoplay>
     <source id="my_mp4" src="images/mp4/emb0.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-</td>
-  </tr>
-</table>
-</td>
-</tr>
-<tr>
-  <td colspan="2"> 
   <p id="mymsg">default mmessage</p>
-</td>
-</tr>
-</table>
   </div>
 
   <script>
   imageZoom("myimage", "myresult");
   </script>
-<!--
-<h2>gif</h2>
-<img src="images/gif/emb0.gif">
-</img>
-
-<h2>mp4</h2>
-<video id = "my_video" width="320" height="240" controls autoplay>
-  <source id="my_mp4" src="images/mp4/emb0.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
-
-<h2>ogg</h2>
-<video id = "my_video" width="320" height="240" controls autoplay>
-  <source id="my_mp4" src="images/ogg/emb0.ogg" type="video/ogg">
-    Your browser does not support the video tag.
-</video>
-
-<h2>webm</h2>
-<video id = "my_video" width="320" height="240" controls autoplay>
-  <source id="my_mp4" src="images/webm/emb0.webm" type="video/webm">
-    Your browser does not support the video tag.
-</video>
--->
-
-</body>
-</html>
