@@ -273,32 +273,28 @@ function clickEmbryo(e)
 </tr>
 <tr>
   <td>
-  <div id="myresult" class="img-zoom-result"></div>
-  </td>
-<td>
   <table>
-    <tr>
-      <td> <h1 id="EmbryoID">Embryo ID:</p> </td>
-      <td>
-        <p>
-      <input type="radio" id="bgal" name="channels" onchange="channelChanged()"; value="bgal">
-          <label for="bgal">beta-Galactosidase</label><br>
-          <input type="radio" id="eve" name="channels" onchange="channelChanged()"; vvalue="eve">
-          <label for="eve">Even-skipped</label><br>
-          <input type="radio" id="both" name="channels" onchange="channelChanged()"; vvalue="both" checked>
-          <label for="both">Both channels</label>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
+    <tr> <td><h1 id="EmbryoID">Embryo ID:</h1> </td></tr>
+  <tr><td>  <div id="myresult" class="img-zoom-result"></div> </td></tr>
+  <tr>
+    <td>
+      <p>
+    <input type="radio" id="bgal" name="channels" onchange="channelChanged()"; value="bgal">
+        <label for="bgal">beta-Galactosidase</label><br>
+        <input type="radio" id="eve" name="channels" onchange="channelChanged()"; vvalue="eve">
+        <label for="eve">Even-skipped</label><br>
+        <input type="radio" id="both" name="channels" onchange="channelChanged()"; vvalue="both" checked>
+        <label for="both">Both channels</label>
+      </p>
+    </td>
+  </tr>
+</table>
+</td>
+<td>
   <video id = "my_video" width="640" height="480" controls autoplay>
     <source id="my_mp4" src="images/mp4/emb0.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-</td>
-  </tr>
-</table>
 </td>
 </tr>
 <tr>
