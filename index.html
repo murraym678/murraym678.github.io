@@ -67,7 +67,8 @@ function imageZoom(imgID, resultID) {
   lens.addEventListener("mousedown", clickEmbryo);
   img.addEventListener("mousedown", clickEmbryo);
 
-function printMessage(msgStr){
+function printMessage(msgStr)
+{
   mymsg = document.getElementById("mymsg");
   str = mymsg.textContent;
   mymsg.textContent = str+msgStr
@@ -214,17 +215,17 @@ function clickEmbryo(e)
 
   function channelChanged()
   {
-    printMessage("CH_BUT")
+    printMessage("CH_BUT");
     var radioButtons = document.getElementsByName("channels");
 
       if (radioButtons[0].checked == true) {
-        printMessage("0")
+        printMessage("0");
         channels = 0;
       } else if (radioButtons[1].checked == true) {
-        printMessage("1")
+        printMessage("1");
         channels = 1;
       } else { // radioButtons[2] should be checked
-        printMessage("2")
+        printMessage("2");
         channels = 2;
       }
       changeVideo();
