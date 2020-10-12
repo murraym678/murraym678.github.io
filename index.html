@@ -45,6 +45,7 @@ var lines = [];
 var channels = 2; // 0=bgal, 1=eve, 2=both
 var currEmbryoId = 0;
 var mouseDown = false;
+var mp4_ok = true;
 
 
 function printMessage(msgStr)
@@ -56,20 +57,32 @@ function printMessage(msgStr)
 
 function changeVideo()
 {
-	mymp4 = document.getElementById("my_mp4");
-  if (channels==0) {
-    mp4str = "images/mp4/C1-"+lines[currEmbryoId][0]+".mp4"
-
-  } else if (channels==1) {
-    mp4str = "images/mp4/C2-"+lines[currEmbryoId][0]+".mp4"
-
-  } else {  // channels must be 2
-    mp4str = "images/mp4/"+lines[currEmbryoId][0]+".mp4"
+  // called when embryo changes, or mp4/gif, or channel
+  if (mp4_ok){
+    if (channels==0) {
+      animStr = "images/mp4/C1-"+lines[currEmbryoId][0]+".mp4"
+    } else if (channels==1) {
+      animStr = "images/mp4/C2-"+lines[currEmbryoId][0]+".mp4"
+    } else {  // channels must be 2
+      animStr = "images/mp4/"+lines[currEmbryoId][0]+".mp4"
+    }
+    myMp4 = document.getElementById("my_mp4");
+  	myMp4.src = animStr;
+    mymsg.textContent = animStr;
+    myVideo = document.getElementById("my_video");
+    myVideo.load();  
+  } else { // have to use the gifs
+    if (channels==0) {
+      gifStr = "images/gif/C1-"+lines[currEmbryoId][0]+".gif"
+    } else if (channels==1) {
+      gifStr = "images/gif/C2-"+lines[currEmbryoId][0]+".gif"
+    } else {  // channels must be 2
+      gifStr = "images/gif/"+lines[currEmbryoId][0]+".gif"
+    }
+    myGif = document.getElementById("my_gif");
+  	myGif.src = gifStr;
+    mymsg.textContent = gifStr;
   }
-	mymp4.src = mp4str;
-  mymsg.textContent = mp4str;
-  myvideo = document.getElementById("my_video");
-  myvideo.load();  
 }
 
 
@@ -253,6 +266,19 @@ function clickEmbryo(e)
       }
       changeVideo();
   }
+
+  function mp4_or_gif_changed()
+  {
+    var radioButtons = document.getElementsByName("mp4_or_gif");
+
+      if (radioButtons[0].checked == true) {
+        mp4_ok = true;
+      } else { // radioButtons[1] should be checked
+        mp4_ok = false;
+      }
+      changeVideo();
+  }
+
 </script>      
   
 </head>
@@ -281,20 +307,31 @@ function clickEmbryo(e)
       <p>
     <input type="radio" id="bgal" name="channels" onchange="channelChanged()"; value="bgal">
         <label for="bgal">beta-Galactosidase</label><br>
-        <input type="radio" id="eve" name="channels" onchange="channelChanged()"; vvalue="eve">
+        <input type="radio" id="eve" name="channels" onchange="channelChanged()"; value="eve">
         <label for="eve">Even-skipped</label><br>
-        <input type="radio" id="both" name="channels" onchange="channelChanged()"; vvalue="both" checked>
+        <input type="radio" id="both" name="channels" onchange="channelChanged()"; value="both" checked>
         <label for="both">Both channels</label>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+    <input type="radio" id="bgal" name="mp4_or_gif" onchange="mp4_or_gif_changed()"; value="mp4">
+        <label for="bgal">mp4</label><br>
+        <input type="radio" id="eve" name="mp4_or_gif" onchange="mp4_or_gif_changed()"; value="gif">
+        <label for="eve">gif</label><br>
       </p>
     </td>
   </tr>
 </table>
 </td>
 <td>
-  <video id = "my_video" width="640" height="480" controls autoplay>
+  <video id = "my_video" width="640" height="380" controls autoplay display="inline">
     <source id="my_mp4" src="images/mp4/emb0.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+  <img id="my_gif" src="images/gif/emb0.gif" display="inline"> </img>
 </td>
 </tr>
 <tr>
@@ -315,19 +352,19 @@ function clickEmbryo(e)
 
 <h2>mp4</h2>
 <video id = "my_video" width="320" height="240" controls autoplay>
-  <source id="my_mp4" src="images/mp4/emb0.mp4" type="video/mp4">
+  <source id="my_anim" src="images/mp4/emb0.mp4" type="video/mp4">
     Your browser does not support the video tag.
 </video>
 
 <h2>ogg</h2>
 <video id = "my_video" width="320" height="240" controls autoplay>
-  <source id="my_mp4" src="images/ogg/emb0.ogg" type="video/ogg">
+  <source id="my_anim" src="images/ogg/emb0.ogg" type="video/ogg">
     Your browser does not support the video tag.
 </video>
 
 <h2>webm</h2>
 <video id = "my_video" width="320" height="240" controls autoplay>
-  <source id="my_mp4" src="images/webm/emb0.webm" type="video/webm">
+  <source id="my_anim" src="images/webm/emb0.webm" type="video/webm">
     Your browser does not support the video tag.
 </video>
 -->
