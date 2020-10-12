@@ -323,21 +323,23 @@ function clickEmbryo(e)
   <tr>
     <td>
       <p>
-    <input type="radio" id="bgal" name="mp4_or_gif" onchange="mp4_or_gif_changed()"; value="mp4">
-        <label for="bgal">mp4</label><br>
-        <input type="radio" id="eve" name="mp4_or_gif" onchange="mp4_or_gif_changed()"; value="gif">
-        <label for="eve">gif</label><br>
+        <input type="radio" id="mp4" name="mp4_or_gif" onchange="mp4_or_gif_changed()"; value="mp4" checked>
+        <label for="mp4">mp4</label><br>
+        <input type="radio" id="gif" name="mp4_or_gif" onchange="mp4_or_gif_changed()"; value="gif">
+        <label for="gif">gif</label><br>
       </p>
     </td>
   </tr>
 </table>
 </td>
 <td>
-  <video id = "my_video" width="640" height="380" controls autoplay display="inline">
+  <div id = "video_division" display="inline">
+  <video id = "my_video" width="640" height="380" controls autoplay style="display:inline;">
     <source id="my_mp4" src="images/mp4/emb0.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-  <img id="my_gif" src="images/gif/emb0.gif" display="none"> </img>
+  </div>
+  <img id="my_gif" src="images/gif/emb0.gif" style="display:none;"> </img>
 </td>
 </tr>
 <tr>
