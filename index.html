@@ -254,16 +254,20 @@ function clickEmbryo(e)
   {
     printMessage("CH_BUT");
     var radioButtons = document.getElementsByName("channels");
+    var mainImage = document.getElementById("myimage");
 
       if (radioButtons[0].checked == true) {
         printMessage("0");
         channels = 0;
+        mainImage.src = "images/C1-pros_slide_001.jpg";
       } else if (radioButtons[1].checked == true) {
         printMessage("1");
         channels = 1;
+        mainImage.src = "images/C2-pros_slide_001.jpg";
       } else { // radioButtons[2] should be checked
         printMessage("2");
         channels = 2;
+        mainImage.src = "images/pros_slide_001.jpg";
       }
       changeVideo();
   }
