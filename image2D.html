@@ -183,8 +183,8 @@ function clickEmbryo(e)
     /*get the cursor's x and y positions:*/
     pos = getCursorPos(e);
     /*calculate the position of the lens:*/
-    x = pos.x - (lens.offsetWidth / 4);
-    y = pos.y - (lens.offsetHeight / 4);
+    x = pos.x - (lens.offsetWidth / 8);
+    y = pos.y - (lens.offsetHeight / 8);
     /*prevent the lens from being positioned outside the image:*/
     if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
     if (x < 0) {x = 0;}
@@ -216,7 +216,7 @@ function clickEmbryo(e)
     
       $.ajax({
           type: "GET",
-          url: "knirps_embryo_map.html",
+          url: "knirps_4000x1500_embryo_map.html",
           dataType: "text",
           success: function(data) {processData(data);}
        });
@@ -265,7 +265,7 @@ function clickEmbryo(e)
   <table>
     <tr>
       <td colspan="2">
-  <img id="myimage" src="images/knirps_slide_001.jpg" width="542" height="214">
+  <img id="myimage" src="images/knirps_slide_4000x1500.jpg" width="500" height="188">
 </td>
 </tr>
 <tr>
