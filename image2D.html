@@ -13,8 +13,8 @@
   position: absolute;
   border: 1px solid #d4d4d4;
   /*set the size of the lens:*/
-  width: 50px;
-  height: 50px;
+  width: 25px;
+  height: 25px;
 }
 
 .img-zoom-result {
@@ -166,7 +166,6 @@ function clickEmbryo(e)
     //mymsg.textContent = "Closest embryo is "+String(minDistIndex)+"  "+fname
     mymsg.textContent = msgString;
     currEmbryoId = minDistIndex;
-    changeVideo();
     embIdMsg = document.getElementById("EmbryoID");
     embIdMsg.textContent = "Embryo ID:"+String(minDistIndex);
 }
@@ -220,12 +219,6 @@ function clickEmbryo(e)
           dataType: "text",
           success: function(data) {processData(data);}
        });
-      /*
-      $("p").click(function(){
-        $(this).hide();
-      });
-      */
-      mp4_or_gif_changed();
   });
   
   function processData(allText) {
