@@ -183,8 +183,8 @@ function clickEmbryo(e)
     /*get the cursor's x and y positions:*/
     pos = getCursorPos(e);
     /*calculate the position of the lens:*/
-    x = pos.x - (lens.offsetWidth / 2);
-    y = pos.y - (lens.offsetHeight / 2);
+    x = pos.x - (lens.offsetWidth / 4);
+    y = pos.y - (lens.offsetHeight / 4);
     /*prevent the lens from being positioned outside the image:*/
     if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
     if (x < 0) {x = 0;}
@@ -216,7 +216,7 @@ function clickEmbryo(e)
     
       $.ajax({
           type: "GET",
-          url: "pros_embryo_map.html",
+          url: "knirps_embryo_map.html",
           dataType: "text",
           success: function(data) {processData(data);}
        });
@@ -250,61 +250,22 @@ function clickEmbryo(e)
    
   }
 
-  function channelChanged()
-  {
-    printMessage("CH_BUT");
-    var radioButtons = document.getElementsByName("channels");
-    var mainImage = document.getElementById("myimage");
-
-      if (radioButtons[0].checked == true) {
-        printMessage("0");
-        channels = 0;
-        mainImage.src = "images/C1-pros_slide_001.jpg";
-      } else if (radioButtons[1].checked == true) {
-        printMessage("1");
-        channels = 1;
-        mainImage.src = "images/C2-pros_slide_001.jpg";
-      } else { // radioButtons[2] should be checked
-        printMessage("2");
-        channels = 2;
-        mainImage.src = "images/pros_slide_001.jpg";
-      }
-      changeVideo();
-  }
-
-  function mp4_or_gif_changed()
-  {
-    var radioButtons = document.getElementsByName("mp4_or_gif");
-    var vidDiv = document.getElementById("video_division");
-    var myGif = document.getElementById("my_gif");
-      if (radioButtons[0].checked == true) {
-        mp4_ok = true;
-        vidDiv.style["display"]="inline";
-        myGif.style["display"]="none";
-      } else { // radioButtons[1] should be checked
-        mp4_ok = false;
-        vidDiv.style["display"]="none";
-        myGif.style["display"]="inline";
-      }
-      changeVideo();
-  }
-
-</script>      
+  
+  </script>      
   
 </head>
 <body>
 
 <h1>GENE30004 <em>Drosophila</em> Development Practical v12 </h1>
-<h2>  <a href="https://murraym678.github.io/image2D.html" target="_blank">Knirps!</a> </h2>
+<h2>PART B 3.</h2>
 <p>Use your mouse to move the box around the slide. 
-  The embryo under the box will be shown in more detail below. 
-  Use the Channel buttons to see the bgal or eve stains , or see both together.</p>
+  The embryo under the box will be shown in more detail below. </p>
 
 <div class="img-zoom-container">
   <table>
     <tr>
       <td colspan="2">
-  <img id="myimage" src="images/pros_slide_001.jpg" width="1200" height="500">
+  <img id="myimage" src="images/knirps_slide_001.jpg" width="542" height="214">
 </td>
 </tr>
 <tr>
@@ -312,39 +273,7 @@ function clickEmbryo(e)
   <table>
     <tr> <td><h1 id="EmbryoID">Embryo ID:</h1> </td></tr>
   <tr><td>  <div id="myresult" class="img-zoom-result"></div> </td></tr>
-  <tr>
-    <td>
-      <p>
-    <input type="radio" id="bgal" name="channels" onchange="channelChanged()"; value="bgal">
-        <label for="bgal">beta-Galactosidase</label><br>
-        <input type="radio" id="eve" name="channels" onchange="channelChanged()"; value="eve">
-        <label for="eve">Even-skipped</label><br>
-        <input type="radio" id="both" name="channels" onchange="channelChanged()"; value="both" checked>
-        <label for="both">Both channels</label>
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p>Try mp4. It may be better.</p>
-      <p>
-        <input type="radio" id="mp4" name="mp4_or_gif" onchange="mp4_or_gif_changed()"; value="mp4">
-        <label for="mp4">mp4</label><br>
-        <input type="radio" id="gif" name="mp4_or_gif" onchange="mp4_or_gif_changed()"; value="gif" checked>
-        <label for="gif">gif</label><br>
-      </p>
-    </td>
-  </tr>
 </table>
-</td>
-<td>
-  <div id = "video_division" style="display:none;">
-  <video id = "my_video" width="640" height="380" controls autoplay >
-    <source id="my_mp4" src="images/mp4/emb0.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  </div>
-  <img id="my_gif" src="images/gif/blank.gif" style="display:block;width:100%"> </img>
 </td>
 </tr>
 <tr>
@@ -358,5 +287,6 @@ function clickEmbryo(e)
   <script>
   imageZoom("myimage", "myresult");
   </script>
+
 </body>
 </html>
