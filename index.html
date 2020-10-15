@@ -2,361 +2,77 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-* {box-sizing: border-box;}
-
-.img-zoom-container {
-  position: relative;
-}
-
-.img-zoom-lens {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  /*set the size of the lens:*/
-  width: 50px;
-  height: 50px;
-}
-
-.img-zoom-result {
-  border: 1px solid #d4d4d4;
-  /*set the size of the result div:*/
-  width: 200px;
-  height: 200px;
-}
-
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  border-spacing: 1px;
-  background-color: #f1f1c1;
-}
-th, td {
-  padding: 3px;
-}
-
-</style>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-</script>
-
-<script>
-
-var lines = [];
-var channels = 2; // 0=bgal, 1=eve, 2=both
-var currEmbryoId = 0;
-var mouseDown = false;
-var mp4_ok = true;
-
-
-function printMessage(msgStr)
-{
-  mymsg = document.getElementById("mymsg");
-  str = mymsg.textContent;
-  mymsg.textContent = str+msgStr
-}
-
-function changeVideo()
-{
-  // called when embryo changes, or mp4/gif, or channel
-  if (mp4_ok){
-    if (channels==0) {
-      animStr = "images/mp4/C1-"+lines[currEmbryoId][0]+".mp4"
-    } else if (channels==1) {
-      animStr = "images/mp4/C2-"+lines[currEmbryoId][0]+".mp4"
-    } else {  // channels must be 2
-      animStr = "images/mp4/"+lines[currEmbryoId][0]+".mp4"
-    }
-    myMp4 = document.getElementById("my_mp4");
-  	myMp4.src = animStr;
-    mymsg.textContent = animStr;
-    myVideo = document.getElementById("my_video");
-    myVideo.load();  
-  } else { // have to use the gifs
-    if (channels==0) {
-      gifStr = "images/gif/C1-"+lines[currEmbryoId][0]+".gif"
-    } else if (channels==1) {
-      gifStr = "images/gif/C2-"+lines[currEmbryoId][0]+".gif"
-    } else {  // channels must be 2
-      gifStr = "images/gif/"+lines[currEmbryoId][0]+".gif"
-    }
-    myGif = document.getElementById("my_gif");
-  	myGif.src = gifStr;
-    mymsg.textContent = gifStr;
-  }
-}
-
-
-function imageZoom(imgID, resultID) {
-
-  var img, lens, result, cx, cy;
-  img = document.getElementById(imgID);
-  result = document.getElementById(resultID);
-  /*create lens:*/
-  lens = document.createElement("DIV");
-  lens.setAttribute("class", "img-zoom-lens");
-  /*insert lens:*/
-  img.parentElement.insertBefore(lens, img);
-  /*calculate the ratio between result DIV and lens:*/
-  cx = result.offsetWidth / lens.offsetWidth;
-  cy = result.offsetHeight / lens.offsetHeight;
-  /*set background properties for the result DIV:*/
-  result.style.backgroundImage = "url('" + img.src + "')";
-  result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
-  /*execute a function when someone moves the cursor over the image, or the lens:*/
-  lens.addEventListener("mousemove", moveLens);
-  img.addEventListener("mousemove", moveLens);
-  /*and also for touch screens:*/
-  lens.addEventListener("touchmove", moveLens);
-  img.addEventListener("touchmove", moveLens);
-  /* look for clicks */
-  lens.addEventListener("mousedown", clickEmbryo);
-  img.addEventListener("mousedown", clickEmbryo);
-  lens.addEventListener("mouseup", clickEmbryo);
-  img.addEventListener("mouseup", clickEmbryo);
-
-
-
-function clickEmbryo(e) 
-{
-    var pos, xval, yval, fname;
-    var dists;
-    var msgString = "default";
-
-    if (!mouseDown) {
-      mouseDown = true;
-      moveLens(e);
-      return;
-    }
-    mouseDown = false; // was down and now released so pick an embryo
-
-	  e.preventDefault();
-    pos = getCursorPos(e);
-
-    dists = [];
-    minDist = 100000000;
-    minDistIndex = -1;
-    //msgString += "lines.length ="+String(lines.length)+"\n";
-    msgString += "CLICK("+String(pos.x)+","+String(pos.y)+") ";
-    
-    for (var i=0; i<lines.length; i++) 
-    {
-      xval = Number(lines[i][1])/2;
-      yval = Number(lines[i][2])/2;
-       dx = xval - pos.x;
-       dy = yval - pos.y;
-       dsqrd = dx*dx + dy*dy;
-       dist = Math.sqrt(dsqrd);
-       dists.push(dist);
-       if (i==0) {
-         msgString += " Embryo zero is at "+xval+","+yval+","+dx+","+dy+" dsqrd="+dsqrd+" dist="+dist;
-//         msgString += "xval="+String(xval)+" = "+String(dist)+"\n";
-       }
-       if (dist<minDist) {
-         minDist=dist;
-         minDistIndex = i;
-       }
-    }
-    
-    msgString += "Closest:"+String(minDistIndex)+"  "+String(minDist)+"\n";
-   //msgString += "lines[0].x="+lines[0].x+" String_version =",String(lines[0].x);
-
-    //msgString += "[0][0]="+lines[0][0]+"[0][1]="+lines[0][1]+" [1][3]"+lines[1][3];
-    mymsg = document.getElementById("mymsg");
-   // fname = lines[i].File
-    //mymsg.textContent = "Closest embryo is "+String(minDistIndex)+"  "+fname
-    mymsg.textContent = msgString;
-    currEmbryoId = minDistIndex;
-    changeVideo();
-    embIdMsg = document.getElementById("EmbryoID");
-    embIdMsg.textContent = "Embryo ID:"+String(minDistIndex);
-}
-
-
-  function moveLens(e) {
-    var pos, x, y;
-
-    if (!mouseDown) { // only move the box when the mouse is down.
-      return;
-    }
-    /*prevent any other actions that may occur when moving over the image:*/
-    e.preventDefault();
-    /*get the cursor's x and y positions:*/
-    pos = getCursorPos(e);
-    /*calculate the position of the lens:*/
-    x = pos.x - (lens.offsetWidth / 2);
-    y = pos.y - (lens.offsetHeight / 2);
-    /*prevent the lens from being positioned outside the image:*/
-    if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
-    if (x < 0) {x = 0;}
-    if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
-    if (y < 0) {y = 0;}
-    /*set the position of the lens:*/
-    lens.style.left = x + "px";
-    lens.style.top = y + "px";
-    /*display what the lens "sees":*/
-    result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
-  }
-  function getCursorPos(e) {
-    var a, x = 0, y = 0;
-    e = e || window.event;
-    /*get the x and y positions of the image:*/
-    a = img.getBoundingClientRect();
-    /*calculate the cursor's x and y coordinates, relative to the image:*/
-    x = e.pageX - a.left;
-    y = e.pageY - a.top;
-    /*consider any page scrolling:*/
-    x = x - window.pageXOffset;
-    y = y - window.pageYOffset;
-    return {x : x, y : y};
-  }
-}
-  
-  // Initiate zoom effect:
-  $(document).ready(function() {
-    
-      $.ajax({
-          type: "GET",
-          url: "pros_embryo_map.html",
-          dataType: "text",
-          success: function(data) {processData(data);}
-       });
-      /*
-      $("p").click(function(){
-        $(this).hide();
-      });
-      */
-      mp4_or_gif_changed();
-  });
-  
-  function processData(allText) {
-      var allTextLines = allText.split(/\r\n|\n/);
-      var headers = allTextLines[0].split(',');
-  
-      for (var i=1; i<allTextLines.length; i++) {
-          var data = allTextLines[i].split(',');
-          if (data.length == headers.length) {
-  
-              var tarr = [];
-              for (var j=0; j<headers.length; j++) {
-//                  tarr.push(headers[j]+":"+data[j]);
-                  tarr.push(data[j]);
-              }
-              lines.push(tarr);
-          }
-      }
-      // alert(lines);
-    mymsg = document.getElementById("mymsg");
-    mymsg.textContent = lines[1];
-   
-  }
-
-  function channelChanged()
-  {
-    printMessage("CH_BUT");
-    var radioButtons = document.getElementsByName("channels");
-    var mainImage = document.getElementById("myimage");
-
-      if (radioButtons[0].checked == true) {
-        printMessage("0");
-        channels = 0;
-        mainImage.src = "images/C1-pros_slide_001.jpg";
-      } else if (radioButtons[1].checked == true) {
-        printMessage("1");
-        channels = 1;
-        mainImage.src = "images/C2-pros_slide_001.jpg";
-      } else { // radioButtons[2] should be checked
-        printMessage("2");
-        channels = 2;
-        mainImage.src = "images/pros_slide_001.jpg";
-      }
-      changeVideo();
-  }
-
-  function mp4_or_gif_changed()
-  {
-    var radioButtons = document.getElementsByName("mp4_or_gif");
-    var vidDiv = document.getElementById("video_division");
-    var myGif = document.getElementById("my_gif");
-      if (radioButtons[0].checked == true) {
-        mp4_ok = true;
-        vidDiv.style["display"]="inline";
-        myGif.style["display"]="none";
-      } else { // radioButtons[1] should be checked
-        mp4_ok = false;
-        vidDiv.style["display"]="none";
-        myGif.style["display"]="inline";
-      }
-      changeVideo();
-  }
-
-</script>      
-  
 </head>
 <body>
 
 <h1>GENE30004 <em>Drosophila</em> Development Practical v12 </h1>
-<h2>  <a href="https://murraym678.github.io/image2D.html" target="_blank">Knirps!</a> </h2>
-<p>Use your mouse to move the box around the slide. 
-  The embryo under the box will be shown in more detail below. 
-  Use the Channel buttons to see the bgal or eve stains , or see both together.</p>
 
-<div class="img-zoom-container">
-  <table>
-    <tr>
-      <td colspan="2">
-  <img id="myimage" src="images/pros_slide_001.jpg" width="1200" height="500">
-</td>
+<p></p>On this website you will encounter virtual slides of embryos which will be used to answer questions in your Prac Worksheet. For some of the questions you'll be asked to choose embryos from the slide that satisfy some criterion. Each of you has been assigned different, randomly generated slides based on your student ID so you need to ensure that you are looking at the right version of these slides. 
+Please enter the last 3 digits of your student ID here:</p>
+<p></p>
+There are 5 slides to look at which have had the following antibody stains applied:</p>
+
+
+<table>
+  <tr>
+    <td>
+      <h3><a href="wildtype_eve.html" target="_blank"> SLIDE 1</a></h3>
+    </td>
+  <td>
+    <p>	Wild type	Mouse-anti-Eve	Goat-anti-Mouse-AP</p>
+  </td>
 </tr>
+
 <tr>
   <td>
-  <table>
-    <tr> <td><h1 id="EmbryoID">Embryo ID:</h1> </td></tr>
-  <tr><td>  <div id="myresult" class="img-zoom-result"></div> </td></tr>
-  <tr>
-    <td>
-      <p>
-    <input type="radio" id="bgal" name="channels" onchange="channelChanged()"; value="bgal">
-        <label for="bgal">beta-Galactosidase</label><br>
-        <input type="radio" id="eve" name="channels" onchange="channelChanged()"; value="eve">
-        <label for="eve">Even-skipped</label><br>
-        <input type="radio" id="both" name="channels" onchange="channelChanged()"; value="both" checked>
-        <label for="both">Both channels</label>
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p>Try mp4. It may be better.</p>
-      <p>
-        <input type="radio" id="mp4" name="mp4_or_gif" onchange="mp4_or_gif_changed()"; value="mp4">
-        <label for="mp4">mp4</label><br>
-        <input type="radio" id="gif" name="mp4_or_gif" onchange="mp4_or_gif_changed()"; value="gif" checked>
-        <label for="gif">gif</label><br>
-      </p>
-    </td>
-  </tr>
-</table>
-</td>
+    <h3><a href="genotypeA_bgal.html" target="_blank"> SLIDE 2</a></h3>
+  </td>
 <td>
-  <div id = "video_division" style="display:none;">
-  <video id = "my_video" width="640" height="380" controls autoplay >
-    <source id="my_mp4" src="images/mp4/emb0.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  </div>
-  <img id="my_gif" src="images/gif/blank.gif" style="display:block;width:100%"> </img>
+  <p>	genotype A	Chicken-anti-Gal	Donkey-anti-Chicken-AP</p>
 </td>
 </tr>
-<tr>
-  <td colspan="2"> 
-  <p id="mymsg">default mmessage</p>
-</td>
-</tr>
-</table>
-  </div>
 
-  <script>
-  imageZoom("myimage", "myresult");
-  </script>
+
+<tr>
+  <td>
+    <h3><a href="genotypeB_bgal.html" target="_blank"> SLIDE 3</a></h3>
+  </td>
+<td>
+  <p>	genotype B	Chicken-anti-Gal	Donkey-anti-Chicken-AP</p>
+</td>
+</tr>
+
+
+<tr>
+  <td>
+    <h3><a href="genotypeA_eve_bgal.html" target="_blank"> SLIDE 4</a></h3>
+  </td>
+<td>
+  <p>	genotype A	Mouse-anti-Eve 
+    AND
+    Chicken-anti-Gal	Goat-anti-Mouse-AP AND
+    Donkey-anti-Chicken-Alexa488</p>
+</td>
+</tr>
+
+
+<tr>
+  <td>
+    <h3><a href="genotypeA_eve_bgal.html" target="_blank"> SLIDE 5</a></h3>
+  </td>
+<td>
+  <p>	genotype B	Mouse-anti-Eve 
+    AND
+    Chicken-anti-Gal	Goat-anti-Mouse-Alexa568 
+    AND
+    Donkey-anti-Chicken-Alexa488</p>
+</td>
+</tr>
+
+
+
+</table>
+
+
 </body>
 </html>
