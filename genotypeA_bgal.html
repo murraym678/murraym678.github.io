@@ -65,12 +65,6 @@ function imageZoom(imgID, resultID) {
   /*and also for touch screens:*/
   lens.addEventListener("touchmove", moveLens);
   img.addEventListener("touchmove", moveLens);
-  /* look for clicks */
-  lens.addEventListener("mousedown", clickEmbryo);
-  img.addEventListener("mousedown", clickEmbryo);
-  lens.addEventListener("mouseup", clickEmbryo);
-  img.addEventListener("mouseup", clickEmbryo);
-
 
 
 
@@ -116,12 +110,6 @@ function imageZoom(imgID, resultID) {
   // Initiate zoom effect:
   $(document).ready(function() {
     
-      $.ajax({
-          type: "GET",
-          url: "knirps_4000x1500_embryo_map.html",
-          dataType: "text",
-          success: function(data) {processData(data);}
-       });
   });
   
   
