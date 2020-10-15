@@ -212,13 +212,15 @@ function clickEmbryo(e)
   
   // Initiate zoom effect:
   $(document).ready(function() {
-    
+      digitStr = location.search[-1]
       $.ajax({
           type: "GET",
-          url: "genotypeA_embryo_map.html",
+          url: "images/slides_and_maps/genotypeA_embryo_map_"+digitStr+".html",
           dataType: "text",
           success: function(data) {processData(data);}
        });
+       myimg = document.getElementById("myimage")
+       myimg.src = "images/slides_and_maps/genotypeA_eve_bgal_slide_"+digitStr+".jpg"
   });
   
   function processData(allText) {
@@ -259,7 +261,7 @@ function clickEmbryo(e)
   <table>
     <tr>
       <td colspan="2">
-  <img id="myimage" src="images/genotypeA_eve_bgal_slide.jpg" width="500" height="188">
+  <img id="myimage" src="images/slides_and_maps/genotypeA_eve_bgal_slide_0.jpg" width="500" height="188">
 </td>
 </tr>
 <tr>
