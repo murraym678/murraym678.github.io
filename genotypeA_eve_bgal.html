@@ -116,7 +116,7 @@ function imageZoom(imgID, resultID) {
 
 
 
-function clickEmbryo(e) 
+  function clickEmbryo(e) 
 {
     var pos, xval, yval, fname;
     var dists;
@@ -195,6 +195,7 @@ function clickEmbryo(e)
     /*display what the lens "sees":*/
     result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
   }
+
   function getCursorPos(e) {
     var a, x = 0, y = 0;
     e = e || window.event;
@@ -208,7 +209,7 @@ function clickEmbryo(e)
     y = y - window.pageYOffset;
     return {x : x, y : y};
   }
-}
+  }
   
   // Initiate zoom effect:
   $(document).ready(function() {
@@ -223,10 +224,10 @@ function clickEmbryo(e)
           dataType: "text",
           success: function(data) {processData(data);}
        });
-       myimg = document.getElementById("myimage")
+       myimg = document.getElementById("myimage");
        srcStr = "images/slides_and_maps/genotypeA_eve_bgal_slide_"+digitStr+".jpg";
        alert("THE NEW SLIDE IMAGE IS "+srcStr);       
-       myimg.src = 
+       myimg.src = srcStr;
   });
   
   function processData(allText) {
@@ -258,7 +259,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v66 </h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v77 </h1>
 <h2>PART B 3.</h2>
 <p>Use your mouse to move the box around the slide. 
   The embryo under the box will be shown in more detail below. </p>
@@ -288,8 +289,8 @@ function clickEmbryo(e)
 
   <script>
   imageZoom("myimage", "myresult");
-  mm = document.getElementById("mymsg")
-  mm.text = location.search
+  mm = document.getElementById("mymsg");
+  mm.text = location.search;
   </script>
 
 </body>
