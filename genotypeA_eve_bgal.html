@@ -212,15 +212,21 @@ function clickEmbryo(e)
   
   // Initiate zoom effect:
   $(document).ready(function() {
-      digitStr = location.search[-1]
+      digitStr = location.search[-1];
+      alert("THE DIGIT PASSED IN WAS "+digitStr);
+      urlStr = "images/slides_and_maps/genotypeA_embryo_map_"+digitStr+".html";
+      alert("THE MAP IS AT "+urlStr);
+
       $.ajax({
           type: "GET",
-          url: "images/slides_and_maps/genotypeA_embryo_map_"+digitStr+".html",
+          url: urlStr,
           dataType: "text",
           success: function(data) {processData(data);}
        });
        myimg = document.getElementById("myimage")
-       myimg.src = "images/slides_and_maps/genotypeA_eve_bgal_slide_"+digitStr+".jpg"
+       srcStr = "images/slides_and_maps/genotypeA_eve_bgal_slide_"+digitStr+".jpg";
+       alert("THE NEW SLIDE IMAGE IS "+srcStr);       
+       myimg.src = 
   });
   
   function processData(allText) {
@@ -252,7 +258,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v33 </h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v44 </h1>
 <h2>PART B 3.</h2>
 <p>Use your mouse to move the box around the slide. 
   The embryo under the box will be shown in more detail below. </p>
@@ -261,7 +267,7 @@ function clickEmbryo(e)
   <table>
     <tr>
       <td colspan="2">
-  <img id="myimage" src="images/slides_and_maps/genotypeA_eve_bgal_slide_0.jpg" width="500" height="188">
+  <img id="myimage" src="images/slides_and_maps/genotypeA_eve_bgal_0.jpg" width="500" height="188">
 </td>
 </tr>
 <tr>
