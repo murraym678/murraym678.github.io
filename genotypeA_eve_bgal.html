@@ -214,7 +214,8 @@ function imageZoom(imgID, resultID) {
   // Initiate zoom effect:
   $(document).ready(function() 
   {
-      digitStr = location.search.charAt(location.search.length-1);
+    alert("Calling ready function");
+     digitStr = location.search.charAt(location.search.length-1);
       urlStr = "images/slides_and_maps/genotypeA_eve_bgal_"+digitStr+"_embryo_map.html";
       alert("THE MAP IS AT "+urlStr);
 
@@ -288,6 +289,7 @@ function imageZoom(imgID, resultID) {
   </div>
 
   <script>
+    alert("Calling imageZoom");
   imageZoom("myimage", "myresult");
   mm = document.getElementById("mymsg");
   mm.text = location.search;
