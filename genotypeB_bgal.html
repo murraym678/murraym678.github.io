@@ -57,14 +57,15 @@ function imageZoom(imgID, resultID) {
   /*calculate the ratio between result DIV and lens:*/
   cx = result.offsetWidth / lens.offsetWidth;
   cy = result.offsetHeight / lens.offsetHeight;
-  document.getElementById("status").textContent = result.offsetWidth.toString()+","+result.offsetHeight.toString();
-  document.getElementById("status2").textContent = lens.offsetWidth.toString()+","+lens.offsetHeight.toString();
-  document.getElementById("status3").textContent = cx.toString()+","+cy.toString();
   /*set background properties for the result DIV:*/
   result.style.backgroundImage = "url('" + img.src + "')";
-  bWidth = ((img.width/imgScale) * cx);
-  bHeight = ((img.height/imgScale) * cy);
-//  document.getElementById("status2").textContent = bWidth.toString()+","+bHeight.toString();
+  realImgWidth = img.width/imgScale;
+  realImgHeight = img.height/imgScale;
+  bWidth = realImgWidth * cx;
+  bHeight = realImgHeight * cy;
+  document.getElementById("status").textContent = "scale lens to result->"+cx.toString()+","+cy.toString();
+  document.getElementById("status2").textContent = "actual size of original image->"+realImgWidth.toString()+","+realImgHeight.toString();
+  document.getElementById("status2").textContent = "background size = "+bWidth.toString()+","+bHeight.toString();
   
   result.style.backgroundSize = bWidth + "px " + bHeight + "px";
   /*execute a function when someone moves the cursor over the image, or the lens:*/
@@ -126,7 +127,7 @@ function imageZoom(imgID, resultID) {
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v1.10</h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v1.12</h1>
 <h2>SLIDE 3 - Genotype B - Chicken-anti-betaGal/Donkey-anti-Chicken-AP</h2>
 <p id="status"> msg1</p>
 <p id="status2"> msg2 </p>
