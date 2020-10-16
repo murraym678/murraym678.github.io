@@ -214,10 +214,10 @@ function imageZoom(imgID, resultID) {
   // Initiate zoom effect:
   $(document).ready(function() 
   {
-    alert("Calling ready function");
+    //alert("Calling ready function");
      digitStr = location.search.charAt(location.search.length-1);
       urlStr = "images/slides_and_maps/genotypeA_eve_bgal_"+digitStr+"_embryo_map.html";
-      alert("THE MAP IS AT "+urlStr);
+      //alert("THE MAP IS AT "+urlStr);
 
       $.ajax({
           type: "GET",
@@ -227,8 +227,12 @@ function imageZoom(imgID, resultID) {
        });
        myimg = document.getElementById("myimage");
        srcStr = "images/slides_and_maps/genotypeA_eve_bgal_"+digitStr+".jpg";
-       alert("THE NEW SLIDE IMAGE IS "+srcStr);       
+       //alert("THE NEW SLIDE IMAGE IS "+srcStr);       
        myimg.src = srcStr;
+
+      result = document.getElementById("myresult");
+      result.style.backgroundImage = "url('" + myimg.src + "')";
+
   });
   
   function processData(allText) {
@@ -260,7 +264,7 @@ function imageZoom(imgID, resultID) {
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v1.0 </h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v1.2 </h1>
 <h2>PART B 3.</h2>
 <p>Use your mouse to move the box around the slide. 
   The embryo under the box will be shown in more detail below. </p>
@@ -289,7 +293,7 @@ function imageZoom(imgID, resultID) {
   </div>
 
   <script>
-    alert("Calling imageZoom");
+//    alert("Calling imageZoom");
   imageZoom("myimage", "myresult");
   mm = document.getElementById("mymsg");
   mm.text = location.search;
