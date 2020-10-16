@@ -41,6 +41,7 @@ th, td {
 
 <script>
 
+var imgScale = 0.5;
 var mouseDown = false;
 
 function imageZoom(imgID, resultID) {
@@ -58,7 +59,7 @@ function imageZoom(imgID, resultID) {
   cy = result.offsetHeight / lens.offsetHeight;
   /*set background properties for the result DIV:*/
   result.style.backgroundImage = "url('" + img.src + "')";
-  result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+  result.style.backgroundSize = ((img.width/imgScale) * cx) + "px " + ((img.height/imgScale) * cy) + "px";
   /*execute a function when someone moves the cursor over the image, or the lens:*/
   lens.addEventListener("mousemove", moveLens);
   img.addEventListener("mousemove", moveLens);
@@ -76,12 +77,16 @@ function imageZoom(imgID, resultID) {
     /*get the cursor's x and y positions:*/
     pos = getCursorPos(e);
     /*calculate the position of the lens:*/
-    x = pos.x - (lens.offsetWidth / 2);
-    y = pos.y - (lens.offsetHeight / 2);
+//    actualLensWidth = lens.offsetWidth*imgScale;
+//    actualLensHeight = lens.offsetHeight*imgScale;
+    actualLensWidth = lens.offsetWidth;
+    actualLensHeight = lens.offsetHeight;
+    x = pos.x - (actualLensWidth / 2);
+    y = pos.y - (actualLensHeight / 2);
     /*prevent the lens from being positioned outside the image:*/
-    if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+    if (x > img.width - actualLensWidth) {x = img.width - actualLensWidth;}
     if (x < 0) {x = 0;}
-    if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+    if (y > img.height - actualLensHeight) {y = img.height - actualLensHeight;}
     if (y < 0) {y = 0;}
     /*set the position of the lens:*/
     lens.style.left = x + "px";
@@ -121,7 +126,7 @@ function imageZoom(imgID, resultID) {
   <table>
     <tr>
       <td colspan="2">
-  <img id="myimage" src="images/slides_and_maps/genotypeB_bgal.jpg" width="848" height="468">
+  <img id="myimage" src="images/slides_and_maps/genotypeB_bgal.jpg" width="424" height="234">
 </td>
 <td>  <div id="myresult" class="img-zoom-result"></div> </td>
 </tr>
