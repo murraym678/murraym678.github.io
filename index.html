@@ -15,11 +15,17 @@
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v1.2</h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v1.3</h1>
 
-<p></p>On this website you will encounter virtual slides of embryos which will be used to answer questions in your Prac Worksheet. For some of the questions you'll be asked to choose embryos from the slide that satisfy some criterion. Each of you has been assigned different, randomly generated slides based on your student ID so you need to ensure that you are looking at the right version of these slides. 
-Please enter the last 3 digits of your student ID here:</p>
-
+<p><em>On this website you will encounter virtual slides of embryos 
+  which will be used to answer questions in your Prac Worksheet. 
+  For some of the questions you'll be asked to choose embryos 
+  from the slide that satisfy some criterion. Each of you has 
+  been assigned <strong>different</strong> randomly generated slides based on 
+  your student ID so you need to ensure that you are looking 
+  at the right version of these slides. </em></p>
+<p>Please enter your student ID.</p>
+<label for="fname">StudentID:</label><br>
 <input type="text" id="get_id" name="get_id" value="default_id">
 <input type="button" id="get_id_button" name="get_id_button" onclick="remember_id()" value="Submit">
 <p></p>
@@ -27,6 +33,7 @@ There are 5 slides to look at which have had the following antibody stains appli
 
 
 <table>
+  <!--
   <tr>
     <td>
       <h3><a href="wildtype_eve.html" target="_blank"> SLIDE 1</a></h3>
@@ -35,10 +42,10 @@ There are 5 slides to look at which have had the following antibody stains appli
     <p>	Wild type	Mouse-anti-Eve	Goat-anti-Mouse-AP</p>
   </td>
 </tr>
-
+-->
 <tr>
   <td>
-    <h3><a href="genotypeA_bgal.html" target="_blank"> SLIDE 2</a></h3>
+    <h3><a href="genotypeA_bgal.html" target="_blank"> GENOTYPE A - betGal</a></h3>
   </td>
 <td>
   <p>	genotype A	Chicken-anti-Gal	Donkey-anti-Chicken-AP</p>
@@ -48,7 +55,7 @@ There are 5 slides to look at which have had the following antibody stains appli
 
 <tr>
   <td>
-    <h3><a href="genotypeB_bgal.html" target="_blank"> SLIDE 3</a></h3>
+    <h3><a href="genotypeB_bgal.html" target="_blank"> GENOTYPE B - betaGAL</a></h3>
   </td>
 <td>
   <p>	genotype B	Chicken-anti-Gal	Donkey-anti-Chicken-AP</p>
@@ -58,7 +65,7 @@ There are 5 slides to look at which have had the following antibody stains appli
 
 <tr>
   <td>
-    <h3><a id="a_eve_bgal" href="genotypeA_eve_bgal.html" target="_blank"> SLIDE 4</a></h3>
+    <h3><a id="a_eve_bgal" href="genotypeA_eve_bgal.html" target="_blank"> GENEOTYPE A-EVE+betaGAL</a></h3>
   </td>
 <td>
   <p>	genotype A	Mouse-anti-Eve 
@@ -71,7 +78,7 @@ There are 5 slides to look at which have had the following antibody stains appli
 
 <tr>
   <td>
-    <h3><a id="b_eve_bgal" href="genotypeB_eve_bgal.html" target="_blank"> SLIDE 5</a></h3>
+    <h3><a id="b_eve_bgal" href="genotypeB_eve_bgal.html" target="_blank"> GENEOTYPE B-EVE+betaGAL</a></h3>
   </td>
 <td>
   <p>	genotype B	Mouse-anti-Eve 
