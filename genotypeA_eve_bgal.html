@@ -147,10 +147,12 @@ function imageZoom(imgID, resultID) {
        dsqrd = dx*dx + dy*dy;
        dist = Math.sqrt(dsqrd);
        dists.push(dist);
+       
        if (i==0) {
          msgString += " Embryo zero is at "+xval+","+yval+","+dx+","+dy+" dsqrd="+dsqrd+" dist="+dist;
 //         msgString += "xval="+String(xval)+" = "+String(dist)+"\n";
        }
+       
        if (dist<minDist) {
          minDist=dist;
          minDistIndex = i;
@@ -164,7 +166,7 @@ function imageZoom(imgID, resultID) {
     mymsg = document.getElementById("mymsg");
    // fname = lines[i].File
     //mymsg.textContent = "Closest embryo is "+String(minDistIndex)+"  "+fname
-    mymsg.textContent = msgString;
+    //mymsg.textContent = msgString;
     currEmbryoId = minDistIndex;
     embIdMsg = document.getElementById("EmbryoID");
     embIdMsg.textContent = "Embryo ID:"+String(minDistIndex);
