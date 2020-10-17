@@ -109,10 +109,11 @@ function imageZoom(imgID, resultID) {
     bPosX = x*cx;
     bPosY = y*cy;
 
+/*
     document.getElementById("status").textContent = "pos in window="+pos.x.toString()+","+pos.y.toString();
     document.getElementById("status2").textContent = "topleft="+x.toString()+","+y.toString();
     document.getElementById("status3").textContent = "topleft="+bPosX.toString()+","+bPosY.toString();
-  
+*/
     result.style.backgroundPosition = "-" + bPosX + "px -" + bPosY + "px";
   }
   function getCursorPos(e) {
@@ -141,10 +142,11 @@ function imageZoom(imgID, resultID) {
 <body>
 
 <h1>GENE30004 <em>Drosophila</em> Development Practical v1.23</h1>
-<h2>SLIDE 3 - Genotype B - Chicken-anti-betaGal/Donkey-anti-Chicken-AP</h2>
-<p id="status"> msg1</p>
+<h2>Genotype B - Chicken-anti-betaGal/Donkey-anti-Chicken-AP</h2>
+<!--<p id="status"> msg1</p>
 <p id="status2"> msg2 </p>
 <p id="status3"> msg3</p>
+-->
 <div class="img-zoom-container">
   <img id="myimage" src="images/slides_and_maps/genotypeB_bgal.jpg" width="282" height="156">
   <div id="myresult" class="img-zoom-result"></div>
