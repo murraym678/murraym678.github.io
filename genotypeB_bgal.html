@@ -61,7 +61,7 @@ function imageZoom(imgID, resultID) {
   result.style.backgroundImage = "url('" + img.src + "')";
   realImgWidth = (img.width*imgScale);
   realImgHeight = (img.height*imgScale);
-  bWidth = realImgWidth * *imgScale / cx;
+  bWidth = realImgWidth * imgScale / cx;
   bHeight = realImgHeight * imgScale / cy;
   document.getElementById("status").textContent = "scale lens to result->"+cx.toString()+","+cy.toString();
   document.getElementById("status2").textContent = "actual size of original image->"+realImgWidth.toString()+","+realImgHeight.toString();
@@ -128,7 +128,7 @@ function imageZoom(imgID, resultID) {
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v1.14</h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v1.15</h1>
 <h2>SLIDE 3 - Genotype B - Chicken-anti-betaGal/Donkey-anti-Chicken-AP</h2>
 <p id="status"> msg1</p>
 <p id="status2"> msg2 </p>
