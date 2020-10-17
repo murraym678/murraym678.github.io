@@ -105,12 +105,13 @@ function imageZoom(imgID, resultID) {
     lens.style.top = y + "px";
     /*display what the lens "sees":*/
 
-    document.getElementById("status").textContent = "pos in window="+pos.x.toString()+","+pos.y.toString();
-    document.getElementById("status2").textContent = "topleft="+x.toString()+","+y.toString();
-  
     bPos.x = x*imgScale;
     bPos.y = y*imgScale;
 
+    document.getElementById("status").textContent = "pos in window="+pos.x.toString()+","+pos.y.toString();
+    document.getElementById("status2").textContent = "topleft="+x.toString()+","+y.toString();
+    document.getElementById("status3").textContent = "topleft="+bPos.x.toString()+","+bPos.y.toString();
+  
     result.style.backgroundPosition = "-" + (bPos.x + "px -" + bPos.y + "px";
   }
   function getCursorPos(e) {
