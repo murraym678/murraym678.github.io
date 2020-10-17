@@ -13,8 +13,8 @@
   position: absolute;
   border: 1px solid #d4d4d4;
   /*set the size of the lens:*/
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 }
 
 .img-zoom-result {
@@ -116,7 +116,7 @@ function imageZoom(imgID, resultID) {
 
 
 
-  function clickEmbryo(e) 
+function clickEmbryo(e) 
 {
     var pos, xval, yval, fname;
     var dists;
@@ -140,19 +140,17 @@ function imageZoom(imgID, resultID) {
     
     for (var i=0; i<lines.length; i++) 
     {
-      xval = Number(lines[i][1])/8;
-      yval = Number(lines[i][2])/8;
+      xval = Number(lines[i][1])/2;
+      yval = Number(lines[i][2])/2;
        dx = xval - pos.x;
        dy = yval - pos.y;
        dsqrd = dx*dx + dy*dy;
        dist = Math.sqrt(dsqrd);
        dists.push(dist);
-       
        if (i==0) {
          msgString += " Embryo zero is at "+xval+","+yval+","+dx+","+dy+" dsqrd="+dsqrd+" dist="+dist;
 //         msgString += "xval="+String(xval)+" = "+String(dist)+"\n";
        }
-       
        if (dist<minDist) {
          minDist=dist;
          minDistIndex = i;
@@ -166,8 +164,9 @@ function imageZoom(imgID, resultID) {
     mymsg = document.getElementById("mymsg");
    // fname = lines[i].File
     //mymsg.textContent = "Closest embryo is "+String(minDistIndex)+"  "+fname
-    //mymsg.textContent = msgString;
+    mymsg.textContent = msgString;
     currEmbryoId = minDistIndex;
+    changeVideo();
     embIdMsg = document.getElementById("EmbryoID");
     embIdMsg.textContent = "Embryo ID:"+String(minDistIndex);
 }
@@ -184,8 +183,8 @@ function imageZoom(imgID, resultID) {
     /*get the cursor's x and y positions:*/
     pos = getCursorPos(e);
     /*calculate the position of the lens:*/
-    x = pos.x - (lens.offsetWidth/2);
-    y = pos.y - (lens.offsetHeight/2);
+    x = pos.x - (lens.offsetWidth / 4);
+    y = pos.y - (lens.offsetHeight / 4);
     /*prevent the lens from being positioned outside the image:*/
     if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
     if (x < 0) {x = 0;}
@@ -197,7 +196,6 @@ function imageZoom(imgID, resultID) {
     /*display what the lens "sees":*/
     result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
   }
-
   function getCursorPos(e) {
     var a, x = 0, y = 0;
     e = e || window.event;
@@ -211,30 +209,23 @@ function imageZoom(imgID, resultID) {
     y = y - window.pageYOffset;
     return {x : x, y : y};
   }
-  }
+}
   
   // Initiate zoom effect:
-  $(document).ready(function() 
-  {
-    //alert("Calling ready function");
-     digitStr = location.search.charAt(location.search.length-1);
-      urlStr = "images/slides_and_maps/genotypeB_eve_bgal_"+digitStr+"_embryo_map.html";
-      //alert("THE MAP IS AT "+urlStr);
-
+  $(document).ready(function() {
+    
       $.ajax({
           type: "GET",
-          url: urlStr,
+          url: "images/slides_and_maps/genotypeB_eve_bgal_0_embryo_map.html",
           dataType: "text",
           success: function(data) {processData(data);}
        });
-       myimg = document.getElementById("myimage");
-       srcStr = "images/slides_and_maps/genotypeB_eve_bgal_"+digitStr+".jpg";
-       //alert("THE NEW SLIDE IMAGE IS "+srcStr);       
-       myimg.src = srcStr;
-
-      result = document.getElementById("myresult");
-      result.style.backgroundImage = "url('" + myimg.src + "')";
-
+      /*
+      $("p").click(function(){
+        $(this).hide();
+      });
+      */
+      mp4_or_gif_changed();
   });
   
   function processData(allText) {
@@ -255,35 +246,118 @@ function imageZoom(imgID, resultID) {
       }
       // alert(lines);
     mymsg = document.getElementById("mymsg");
-    //mymsg.textContent = lines[1];
+//    mymsg.textContent = lines[1];
     mymsg.textContent = location.search;
    
   }
 
-  
-  </script>      
+  function channelChanged()
+  {
+    printMessage("CH_BUT");
+    var radioButtons = document.getElementsByName("channels");
+    var mainImage = document.getElementById("myimage");
+
+      if (radioButtons[0].checked == true) {
+        printMessage("0");
+        channels = 0;
+        mainImage.src = "images/C1-pros_slide_001.jpg";
+      } else if (radioButtons[1].checked == true) {
+        printMessage("1");
+        channels = 1;
+        mainImage.src = "images/C2-pros_slide_001.jpg";
+      } else { // radioButtons[2] should be checked
+        printMessage("2");
+        channels = 2;
+        mainImage.src = "images/pros_slide_001.jpg";
+      }
+      changeVideo();
+  }
+
+  function mp4_or_gif_changed()
+  {
+    var radioButtons = document.getElementsByName("mp4_or_gif");
+    var vidDiv = document.getElementById("video_division");
+    var myGif = document.getElementById("my_gif");
+      if (radioButtons[0].checked == true) {
+        mp4_ok = true;
+        vidDiv.style["display"]="inline";
+        myGif.style["display"]="none";
+      } else { // radioButtons[1] should be checked
+        mp4_ok = false;
+        vidDiv.style["display"]="none";
+        myGif.style["display"]="inline";
+      }
+      changeVideo();
+  }
+
+</script>      
   
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v1.4 </h1>
-<h2>PART B 3.</h2>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v22 </h1>
+<h2>  GENOTYPE B - Mouse-anti-Eve/Chick-anti-betaGal & G&M-488, D&Ch-568 </h2>
 <p>Use your mouse to move the box around the slide. 
-  The embryo under the box will be shown in more detail below. </p>
+  The embryo under the box will be shown in more detail below. 
+  Use the Channel buttons to see the bgal or eve stains , or see both together.</p>
 
 <div class="img-zoom-container">
-  <img id="myimage" src="images/slides_and_maps/genotypeA_eve_bgal_0.jpg" width="500" height="188">
-  <h1 id="EmbryoID">Embryo ID:</h1>
-  <div id="myresult" class="img-zoom-result"></div>
+  <table>
+    <tr>
+      <td colspan="2">
+  <img id="myimage" src="images/slides_and_maps/genotypeB_eve_bgal_0.jpg" width="600" height="250">
+</td>
+</tr>
+<tr>
+  <td>
+  <table>
+    <tr> <td><h1 id="EmbryoID">Embryo ID:</h1> </td></tr>
+  <tr><td>  <div id="myresult" class="img-zoom-result"></div> </td></tr>
+  <tr>
+    <td>
+      <p>
+    <input type="radio" id="bgal" name="channels" onchange="channelChanged()"; value="bgal">
+        <label for="bgal">beta-Galactosidase</label><br>
+        <input type="radio" id="eve" name="channels" onchange="channelChanged()"; value="eve">
+        <label for="eve">Even-skipped</label><br>
+        <input type="radio" id="both" name="channels" onchange="channelChanged()"; value="both" checked>
+        <label for="both">Both channels</label>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>Try mp4. It may be better.</p>
+      <p>
+        <input type="radio" id="mp4" name="mp4_or_gif" onchange="mp4_or_gif_changed()"; value="mp4">
+        <label for="mp4">mp4</label><br>
+        <input type="radio" id="gif" name="mp4_or_gif" onchange="mp4_or_gif_changed()"; value="gif" checked>
+        <label for="gif">gif</label><br>
+      </p>
+    </td>
+  </tr>
+</table>
+</td>
+<td>
+  <div id = "video_division" style="display:none;">
+  <video id = "my_video" width="640" height="380" controls autoplay >
+    <source id="my_mp4" src="images/mp4/emb0.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  </div>
+  <img id="my_gif" src="images/gif/blank.gif" style="display:block;width:100%"> </img>
+</td>
+</tr>
+<tr>
+  <td colspan="2"> 
   <p id="mymsg">default mmessage</p>
-</div>
+</td>
+</tr>
+</table>
+  </div>
 
   <script>
-//    alert("Calling imageZoom");
   imageZoom("myimage", "myresult");
-  mm = document.getElementById("mymsg");
-  mm.text = location.search;
   </script>
-
 </body>
 </html>
