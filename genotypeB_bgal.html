@@ -112,7 +112,7 @@ function imageZoom(imgID, resultID) {
     document.getElementById("status2").textContent = "topleft="+x.toString()+","+y.toString();
     document.getElementById("status3").textContent = "topleft="+bPos.x.toString()+","+bPos.y.toString();
   
-    result.style.backgroundPosition = "-" + (bPos.x + "px -" + bPos.y + "px";
+    result.style.backgroundPosition = "-" + bPos.x + "px -" + bPos.y + "px";
   }
   function getCursorPos(e) {
     var a, x = 0, y = 0;
@@ -139,7 +139,7 @@ function imageZoom(imgID, resultID) {
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v1.17</h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v1.18</h1>
 <h2>SLIDE 3 - Genotype B - Chicken-anti-betaGal/Donkey-anti-Chicken-AP</h2>
 <p id="status"> msg1</p>
 <p id="status2"> msg2 </p>
