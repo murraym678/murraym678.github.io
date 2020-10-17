@@ -214,18 +214,25 @@ function clickEmbryo(e)
   // Initiate zoom effect:
   $(document).ready(function() {
     
+    digitStr = location.search.charAt(location.search.length-1);
+    urlStr = "images/slides_and_maps/genotypeB_eve_bgal_"+digitStr+"_embryo_map.html";
+
       $.ajax({
           type: "GET",
-          url: "images/slides_and_maps/genotypeB_eve_bgal_0_embryo_map.html",
+          url: urlStr,
           dataType: "text",
           success: function(data) {processData(data);}
        });
-      /*
-      $("p").click(function(){
-        $(this).hide();
-      });
-      */
       mp4_or_gif_changed();
+
+      myimg = document.getElementById("myimage");
+       srcStr = "images/slides_and_maps/genotypeB_eve_bgal_"+digitStr+".jpg";
+       //alert("THE NEW SLIDE IMAGE IS "+srcStr);       
+       myimg.src = srcStr;
+
+      result = document.getElementById("myresult");
+      result.style.backgroundImage = "url('" + myimg.src + "')";
+
   });
   
   function processData(allText) {
@@ -295,7 +302,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v999 </h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v998 </h1>
 <h2>  GENOTYPE B - Mouse-anti-Eve/Chick-anti-betaGal & G&M-488, D&Ch-568 </h2>
 <p>Use your mouse to move the box around the slide. 
   The embryo under the box will be shown in more detail below. 
