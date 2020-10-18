@@ -8,18 +8,18 @@
   background-color: rgb(177, 219, 183);
   color:rgb(2, 49, 7);
   font-size: 30px;
-  width:400px;
+  width:600px;
 }
 .GENOTYPE_STAIN {
     border:1px solid #5a1a00;
   background-color: rgb(250, 195, 143);
   color:rgb(0, 0, 0);
-  width:400px;
+  width:600px;
 }
 .EXPLANATION {
     background-color: rgb(212, 211, 209);
   color:rgb(0, 0, 0);
-  width:400px;
+  width:600px;
 }
 
 .img-main {
