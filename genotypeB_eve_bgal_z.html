@@ -142,9 +142,9 @@ function clickEmbryo(e)
     msgString += "SO   Closest embryo is "+String(minDistIndex)+"  "+fname;
 //    mymsg = document.getElementById("mymsg");
 //    mymsg.textContent = msgString;
-    alert(msgString);
+    //alert(msgString);
     currEmbryoId = minDistIndex;
-    alert("CCalling changeVideo with CurrentEmbryoID = "+String(currEmbryoId));
+    //alert("CCalling changeVideo with CurrentEmbryoID = "+String(currEmbryoId));
     changeVideo();
     embIdMsg = document.getElementById("EmbryoID");
     embIdMsg.textContent = "Embryo ID:"+String(minDistIndex);
@@ -175,6 +175,7 @@ function clickEmbryo(e)
     /*display what the lens "sees":*/
     result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
   }
+
   function getCursorPos(e) {
     var a, x = 0, y = 0;
     e = e || window.event;
@@ -260,7 +261,7 @@ function clickEmbryo(e)
         mainImage.src = "images/slides_and_maps/genotypeB_eve_bgal_z_"+digitStr+".jpg";
       }
       changeVideo();
-      document.getElementById("myresult").style.backgroundImage = "url('" + mainImg.src + "')";
+      document.getElementById("myresult").style.backgroundImage = "url('" + mainImage.src + "')";
   }
 
   function mp4_or_gif_changed()
