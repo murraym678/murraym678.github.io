@@ -28,13 +28,13 @@ function printMessage(msgStr)
 
 function changeVideo()
 {
-  alert("INSIDE CHANGE VIDEO currEmbryoId="+String(currEmbryoId));
+  //lert("INSIDE CHANGE VIDEO currEmbryoId="+String(currEmbryoId));
   if (currEmbryoId==0) {
     return;
   }
   // called when embryo changes, or mp4/gif, or channel
   if (mp4_ok){
-    alert("INSIDE CHANGE VIDEO mp4_OK=");
+    //alert("INSIDE CHANGE VIDEO mp4_OK=");
     if (channels==0) {
       animStr = "images/mp4/C1-"+lines[currEmbryoId][0]+".mp4"
     } else if (channels==1) {
@@ -47,9 +47,9 @@ function changeVideo()
     //mymsg.textContent = animStr;
     myVideo = document.getElementById("my_video");
     myVideo.load();  
-    alert("SETTING MP4="+animStr);
+    //alert("SETTING MP4="+animStr);
   } else { // have to use the gifs
-    alert("INSIDE CHANGE VIDEO mp4_OK not true so using GIFS");
+    //alert("INSIDE CHANGE VIDEO mp4_OK not true so using GIFS");
     if (channels==0) {
       gifStr = "images/gif/C1-"+lines[currEmbryoId][0]+".gif"
     } else if (channels==1) {
@@ -59,7 +59,7 @@ function changeVideo()
     }
     myGif = document.getElementById("my_gif");
   	myGif.src = gifStr;
-    alert("SETTING GIF="+gifStr);
+    //alert("SETTING GIF="+gifStr);
   //  mymsg.textContent = gifStr;
   }
 }
@@ -194,7 +194,7 @@ function clickEmbryo(e)
   $(document).ready(function() {
     digitStr = location.search.charAt(location.search.length-1);
     urlStr = "images/slides_and_maps/genotypeB_eve_bgal_z_"+digitStr+"_embryo_map.html";
-    alert("READY reading map= "+urlStr)
+    //alert("READY reading map= "+urlStr)
 
       $.ajax({
           type: "GET",
@@ -206,7 +206,7 @@ function clickEmbryo(e)
 
       myimg = document.getElementById("myimage");
        srcStr = "images/slides_and_maps/genotypeB_eve_bgal_z_"+digitStr+".jpg";
-       alert("READY - THE NEW SLIDE IMAGE IS "+srcStr);       
+      // alert("READY - THE NEW SLIDE IMAGE IS "+srcStr);       
        myimg.src = srcStr;
 
       result = document.getElementById("myresult");
@@ -215,7 +215,7 @@ function clickEmbryo(e)
       slide_id = document.getElementById("slide_id");
       slide_id.textContent = "Slide for student:"+location.search.substring(2,location.search.length-1);
 
-    alert("READY - After starting there are this many lnes ="+String(lines.length));
+    //alert("READY - After starting there are this many lnes ="+String(lines.length));
 
   });
   
@@ -224,7 +224,7 @@ function clickEmbryo(e)
       var allTextLines = allText.split(/\r\n|\n/);
       var headers = allTextLines[0].split(',');
 
-      alert("PROCESSING "+String(allTextLines.length));
+//      alert("PROCESSING "+String(allTextLines.length));
   
       for (var i=1; i<allTextLines.length; i++) {
           var data = allTextLines[i].split(',');
@@ -260,7 +260,7 @@ function clickEmbryo(e)
         mainImage.src = "images/slides_and_maps/genotypeB_eve_bgal_z_"+digitStr+".jpg";
       }
       changeVideo();
-      document.getElementById("myresult").style.backgroundImage = "url('" + img.src + "')";
+      document.getElementById("myresult").style.backgroundImage = "url('" + mainImg.src + "')";
   }
 
   function mp4_or_gif_changed()
