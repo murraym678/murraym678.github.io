@@ -27,60 +27,53 @@
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v100 </h1>
+<h2>GENE30004 <em>Drosophila</em> Development Practical v100 </h2>
 <div class="EXPLANATION">
-<h4>On this website you will encounter virtual slides of embryos 
+<p>On this website you will encounter virtual slides of embryos 
   which will be used to answer questions in your Prac Worksheet. The embryos are of two genotypes.
-  <p>  genotype A  =  gene1<sup>-</sup> / TM3 <sub>gene2-regulatory-element::lacZ </sub></p>
-  <p>  genotype B  =  gene3<sup>-</sup> / TM3 <sub>gene4-regulatory-element::lacZ </sub></p>
-</h4>
-<h4>
-  The primary goal is to identify genes 1,2,3 and 4 from this list:
-  <li>prospero (pros)</li>
-  <li>fushi-tarazu (ftz)</li>
-  <li>knirps (kni)</li>
-  <li>hunchback (hb)</li>
- <p>&nbsp;</p>
- </div>
-
-
-<div class="GENOTYPE_STAIN">
-    <h3><a href="genotypeA_bgal.html" target="_blank"> GENOTYPE A - betaGal/AP</a></h3>
-</div>
-<div class="GENOTYPE_STAIN">
-
-    <h3><a href="genotypeB_bgal.html" target="_blank"> GENOTYPE B - betaGAL/AP</a></h3>
-</div>
-
-<div class="EXPLANATION">
-  <p>
-  For the next three slides you'll be asked to choose embryos that satisfy some criterion. 
-  Each of you has 
-  been assigned <strong>different</strong> randomly generated slides based on 
-  your student ID so you need to ensure that you are looking 
-  at the right version of these slides. </em></p>
-  <p>To begin please enter your student ID.</p>
-  <label for="fname">StudentID:</label><br>
+  <p>  Genotype-A  =  gene1<sup>-</sup> / TM3 <sub>gene2-regulatory-element::lacZ </sub></p>
+  <p>  Genotype-B  =  gene3<sup>-</sup> / TM3 <sub>gene4-regulatory-element::lacZ </sub></p>
+</p>
+<p>
+  The primary goal is to identify genes 1,2,3 and 4 from this list: </p>
+  <li><em>prospero (pros)</em></li>
+  <li><em>fushi-tarazu (ftz)</em></li>
+  <li><em>knirps (kni)</em></li>
+  <li><em>hunchback (hb)</em></li>
+  <p>To begin, please enter your student ID and hit the Submit button.</p>
+<!--  <label for="fname">Student ID:</label><br>>-->
   <input type="text" id="get_id" name="get_id" value="">
   <input type="button" id="get_id_button" name="get_id_button" onclick="remember_id()" value="Submit">
-  <p></p>
-  There are 5 slides to look at which have had the following antibody stains applied:</p>
+  <p>
+  This will create randomly generated slides <strong>that are specific to you</strong>.
+  i.e. you must use your own slide for this - don't copy off a friend!</p>
+
+<div class="GENOTYPE_STAIN">
+  <h2>WEEK 1 - GENOTYPE A</h2>
+    <h3><a href="genotypeA_bgal.html" target="_blank"> Go to the slide: Genotype-A betaGal/AP</a></h3>
+
+    <div id="row1" style="display:none;">
+      <h3 ><a id="a_eve_bgal" href="genotypeA_eve_bgal.html" target="_blank" > Go to the slide: Genotype-A EVE/AP+betaGAL/GREEN</a></h3>
+    </div>
+  
+  </div>
+<div class="GENOTYPE_STAIN">
+  <h2>WEEK 2 - GENOTYPE B</h2>
+    <h3><a href="genotypeB_bgal.html" target="_blank"> Go to the slide: Genotype-B betaGAL/AP</a></h3>
+
+    <div id="row2" style="display:none;" >
+      <h3><a id="b_eve_bgal" href="genotypeB_eve_bgal.html" target="_blank"> Go to the slide: Genotype-B EVE/AP+betaGAL/GREEN</a></h3>
+  </div>
+
+
+  <div id="row3" style="display:none;" >
+      <h3><a id="b_eve_bgal_z" href="genotypeB_eve_bgal_z.html" target="_blank"> Go to the slide: Genotype-B EVE/RED+betaGAL/GREEN ZSTACK</a></h3>
+  </div>
+</div>
+
   
 
-<div id="row1" style="display:none;" class="GENOTYPE_STAIN">
-    <h3 ><a id="a_eve_bgal" href="genotypeA_eve_bgal.html" target="_blank" > GENEOTYPE A-EVE/AP+betaGAL/GREEN</a></h3>
-  </div>
 
-
-
-  <div id="row2" style="display:none;" class="GENOTYPE_STAIN">
-      <h3><a id="b_eve_bgal" href="genotypeB_eve_bgal.html" target="_blank"> GENEOTYPE B-EVE/AP+betaGAL/GREEN</a></h3>
-  </div>
-
-
-  <div id="row3" style="display:none;" class="GENOTYPE_STAIN">
-      <h3><a id="b_eve_bgal_z" href="genotypeB_eve_bgal_z.html" target="_blank"> GENEOTYPE B-EVE/RED+betaGAL/GREEN ZSTACK</a></h3>
-  </div>
 </div>
     
 <script>
