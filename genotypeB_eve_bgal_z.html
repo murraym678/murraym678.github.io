@@ -27,6 +27,9 @@ function printMessage(msgStr)
 
 function changeVideo()
 {
+  if (currEmbryoId>0) {
+    return;
+  }
   // called when embryo changes, or mp4/gif, or channel
   if (mp4_ok){
     if (channels==0) {
@@ -110,8 +113,8 @@ function clickEmbryo(e)
     
     for (var i=0; i<lines.length; i++) 
     {
-      xval = Number(lines[i][1])/2;
-      yval = Number(lines[i][2])/2;
+      xval = Number(lines[i][1])/4;
+      yval = Number(lines[i][2])/4;
        dx = xval - pos.x;
        dy = yval - pos.y;
        dsqrd = dx*dx + dy*dy;
@@ -153,8 +156,8 @@ function clickEmbryo(e)
     /*get the cursor's x and y positions:*/
     pos = getCursorPos(e);
     /*calculate the position of the lens:*/
-    x = pos.x - (lens.offsetWidth / 4);
-    y = pos.y - (lens.offsetHeight / 4);
+    x = pos.x - (lens.offsetWidth / 2);
+    y = pos.y - (lens.offsetHeight / 2);
     /*prevent the lens from being positioned outside the image:*/
     if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
     if (x < 0) {x = 0;}
@@ -268,7 +271,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v3</h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v4</h1>
 <p class="TASK">TASK: Examine the embryos below to determine the identity of gene4.</p>
   <div class="GENOTYPE_STAIN">
   <h4>genotype A  =  gene1<sup>-</sup> / TM3 <sub>gene2-regulatory-element::lacZ </sub> </h4>
