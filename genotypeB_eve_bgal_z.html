@@ -191,7 +191,7 @@ function clickEmbryo(e)
   $(document).ready(function() {
     digitStr = location.search.charAt(location.search.length-1);
     urlStr = "images/slides_and_maps/genotypeB_eve_bgal_z_"+digitStr+"_embryo_map.html";
-    //alert("map= "+urlStr)
+    alert("READY reading map= "+urlStr)
 
       $.ajax({
           type: "GET",
@@ -203,7 +203,7 @@ function clickEmbryo(e)
 
       myimg = document.getElementById("myimage");
        srcStr = "images/slides_and_maps/genotypeB_eve_bgal_z_"+digitStr+".jpg";
-       //alert("THE NEW SLIDE IMAGE IS "+srcStr);       
+       alert("READY - THE NEW SLIDE IMAGE IS "+srcStr);       
        myimg.src = srcStr;
 
       result = document.getElementById("myresult");
@@ -212,7 +212,7 @@ function clickEmbryo(e)
       slide_id = document.getElementById("slide_id");
       slide_id.textContent = "Slide for student:"+location.search.substring(2,location.search.length-1);
 
-    alert("After starting there are this many lnes ="+String(lines.length));
+    alert("READY - After starting there are this many lnes ="+String(lines.length));
 
   });
   
@@ -278,7 +278,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v13</h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v14</h1>
 <p class="TASK">TASK: Examine the embryos below to determine the identity of gene4.</p>
   <div class="GENOTYPE_STAIN">
   <h4>genotype A  =  gene1<sup>-</sup> / TM3 <sub>gene2-regulatory-element::lacZ </sub> </h4>
