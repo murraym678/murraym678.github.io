@@ -28,7 +28,7 @@ function printMessage(msgStr)
 
 function changeVideo()
 {
-  alert("currEmbryoId="+currEmbryoId.toString());
+  alert("CHANGE VIDEO currEmbryoId="+currEmbryoId.toString());
   if (currEmbryoId==0) {
     return;
   }
@@ -46,6 +46,7 @@ function changeVideo()
     //mymsg.textContent = animStr;
     myVideo = document.getElementById("my_video");
     myVideo.load();  
+    alert("SETTING MP4="+animStr);
   } else { // have to use the gifs
     if (channels==0) {
       gifStr = "images/gif/C1-"+lines[currEmbryoId][0]+".gif"
@@ -54,8 +55,9 @@ function changeVideo()
     } else {  // channels must be 2
       gifStr = "images/gif/"+lines[currEmbryoId][0]+".gif"
     }
-//    myGif = document.getElementById("my_gif");
- // 	myGif.src = gifStr;
+    myGif = document.getElementById("my_gif");
+  	myGif.src = gifStr;
+    alert("SETTING GIF="+gifStr);
   //  mymsg.textContent = gifStr;
   }
 }
@@ -134,7 +136,7 @@ function clickEmbryo(e)
     
     msgString += "Closest:"+String(minDistIndex)+"  "+String(minDist)+"\n";
     msgString += "[0][0]="+lines[0][0]+"[0][1]="+lines[0][1]+" [1][3]"+lines[1][3];
-    fname = lines[0][0];
+    fname = lines[minDistIndex][0];
     msgString += "SO   Closest embryo is "+String(minDistIndex)+"  "+fname;
 //    mymsg = document.getElementById("mymsg");
 //    mymsg.textContent = msgString;
@@ -279,7 +281,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v18</h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v19</h1>
 <p class="TASK">TASK: Examine the embryos below to determine the identity of gene4.</p>
   <div class="GENOTYPE_STAIN">
   <h4>genotype A  =  gene1<sup>-</sup> / TM3 <sub>gene2-regulatory-element::lacZ </sub> </h4>
