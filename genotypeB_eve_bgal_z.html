@@ -54,9 +54,9 @@ function changeVideo()
     } else {  // channels must be 2
       gifStr = "images/gif/"+lines[currEmbryoId][0]+".gif"
     }
-    myGif = document.getElementById("my_gif");
-  	myGif.src = gifStr;
-    mymsg.textContent = gifStr;
+//    myGif = document.getElementById("my_gif");
+ // 	myGif.src = gifStr;
+  //  mymsg.textContent = gifStr;
   }
 }
 
@@ -136,10 +136,10 @@ function clickEmbryo(e)
    //msgString += "lines[0].x="+lines[0].x+" String_version =",String(lines[0].x);
 
     //msgString += "[0][0]="+lines[0][0]+"[0][1]="+lines[0][1]+" [1][3]"+lines[1][3];
-    mymsg = document.getElementById("mymsg");
+    //mymsg = document.getElementById("mymsg");
    // fname = lines[i].File
     //mymsg.textContent = "Closest embryo is "+String(minDistIndex)+"  "+fname
-    mymsg.textContent = msgString;
+    //mymsg.textContent = msgString;
     currEmbryoId = minDistIndex;
     changeVideo();
     embIdMsg = document.getElementById("EmbryoID");
@@ -276,7 +276,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v9</h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v10</h1>
 <p class="TASK">TASK: Examine the embryos below to determine the identity of gene4.</p>
   <div class="GENOTYPE_STAIN">
   <h4>genotype A  =  gene1<sup>-</sup> / TM3 <sub>gene2-regulatory-element::lacZ </sub> </h4>
@@ -330,6 +330,8 @@ function clickEmbryo(e)
 </table>
 </td>
 <td>
+  <h2 id="slide_id"> Slide for student: </h2>
+
   <div id = "video_division" style="display:none;">
   <video id = "my_video" width="640" height="380" controls autoplay >
     <source id="my_mp4" src="images/mp4/L_9.mp4" type="video/mp4">
