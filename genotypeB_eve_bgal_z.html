@@ -14,7 +14,7 @@ var lines = [];
 var channels = 2; // 0=bgal, 1=eve, 2=both
 var currEmbryoId = 0;
 var mouseDown = false;
-var mp4_ok = true;
+var mp4_ok = false;
 var digitStr;
 
 /*
@@ -249,7 +249,7 @@ function clickEmbryo(e)
       if (radioButtons[0].checked == true) {
       //  printMessage("0");
         channels = 0;
-        mainImage.src = "images/slides_and_maps/genotypeB_eve_bgal_z_"+digitStr+".jpg";
+        mainImage.src = "images/slides_and_maps/C2-genotypeB_eve_bgal_z_"+digitStr+".jpg";
       } else if (radioButtons[1].checked == true) {
         //printMessage("1");
         channels = 1;
@@ -257,7 +257,7 @@ function clickEmbryo(e)
       } else { // radioButtons[2] should be checked
         //printMessage("2");
         channels = 2;
-        mainImage.src = "images/slides_and_maps/C2-genotypeB_eve_bgal_z_"+digitStr+".jpg";
+        mainImage.src = "images/slides_and_maps/genotypeB_eve_bgal_z_"+digitStr+".jpg";
       }
       changeVideo();
   }
