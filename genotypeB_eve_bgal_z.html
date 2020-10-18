@@ -214,7 +214,7 @@ function clickEmbryo(e)
       result.style.backgroundImage = "url('" + myimg.src + "')";
 
       slide_id = document.getElementById("slide_id");
-      slide_id.textContent = "Slide for student:"+location.search.substring(2,location.search.length-1);
+      slide_id.textContent = "Slide for student:"+location.search.substring(1,location.search.length);
 
     //alert("READY - After starting there are this many lnes ="+String(lines.length));
 
@@ -342,7 +342,6 @@ function clickEmbryo(e)
 </table>
 </td>
 <td>
-
   <div id = "video_division" style="display:none;">
   <video id = "my_video" width="640" height="380" controls autoplay >
     <source id="my_mp4" src="" type="video/mp4">

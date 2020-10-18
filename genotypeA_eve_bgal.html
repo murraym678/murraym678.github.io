@@ -205,7 +205,7 @@ function imageZoom(imgID, resultID) {
       result.style.backgroundImage = "url('" + myimg.src + "')";
 
       slide_id = document.getElementById("slide_id");
-      slide_id.textContent = "Slide for student:"+location.search.substring(2,location.search.length-1);
+      slide_id.textContent = "Slide for student:"+location.search.substring(1,location.search.length);
   });
   
   function processData(allText) {
