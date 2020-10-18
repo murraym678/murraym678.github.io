@@ -260,6 +260,7 @@ function clickEmbryo(e)
         mainImage.src = "images/slides_and_maps/genotypeB_eve_bgal_z_"+digitStr+".jpg";
       }
       changeVideo();
+      document.getElementById("myresult").style.backgroundImage = "url('" + img.src + "')";
   }
 
   function mp4_or_gif_changed()
@@ -284,7 +285,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v20</h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v21</h1>
 <p class="TASK">TASK: Examine the embryos below to determine the identity of gene4.</p>
   <div class="GENOTYPE_STAIN">
   <h4>genotype A  =  gene1<sup>-</sup> / TM3 <sub>gene2-regulatory-element::lacZ </sub> </h4>
@@ -343,11 +344,11 @@ function clickEmbryo(e)
 
   <div id = "video_division" style="display:none;">
   <video id = "my_video" width="640" height="380" controls autoplay >
-    <source id="my_mp4" src="images/mp4/L_9.mp4" type="video/mp4">
+    <source id="my_mp4" src="" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   </div>
-  <img id="my_gif" src="images/gif/L_9.gif" style="display:block;width:100%"> </img>
+  <img id="my_gif" src="" style="display:block;width:100%"> </img>
 </td>
 </tr>
 </table>
