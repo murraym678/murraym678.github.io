@@ -2,39 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-* {box-sizing: border-box;}
-
-.img-zoom-container {
-  position: relative;
-}
-
-.img-zoom-lens {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  /*set the size of the lens:*/
-  width: 40px;
-  height: 40px;
-}
-
-.img-zoom-result {
-  border: 1px solid #d4d4d4;
-  /*set the size of the result div:*/
-  width: 300px;
-  height: 300px;
-}
-
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  border-spacing: 1px;
-  background-color: #00f100;
-}
-th, td {
-  padding: 3px;
-}
-
-</style>
+<link rel="stylesheet" href="gene30004.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
 </script>
@@ -141,14 +109,34 @@ function imageZoom(imgID, resultID) {
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical</h1>
-<h2>Genotype A - Chicken-anti-betaGal/Donkey-anti-Chicken-AP</h2>
+<h2>GENE30004 <em>Drosophila</em> Development Practical v1</h2>
+
+<p class="TASK">TASK: Examine the embryos below to determine the identity of gene2.</p>
+<div class="GENOTYPE_STAIN">
+<h4>genotype A  =  gene1<sup>-</sup> / TM3 <sub>gene2-regulatory-element::lacZ </sub> </h4>
+<h4>1˚: Chicken-anti-betaGal</h4>
+<h4>2˚: Donkey-anti-Chicken-AP</h4>
+<h4> &nbsp</h4>
+</div>
+<div class="EXPLANATION">
+<p>This virtual slide shows embryos of genotypeA immunostained with a beta-galactosidase primary antibody. The secondary antibody is congugated to Alkaline Phosphatase (AP) which is producing a dark reaction product.</p>
+<p>Hence, the dark stain shows you where the lacZ gene is being expressed.
+  Since the lacZ gene is under the control of the regulatory region of gene2
+  it should recapitulate the expression pattern of the gene2 (it may not be exactly the same)
+  So out of the 4 genes being used:
+  <li>prospero (pros)</li>
+  <li>fushi-tarazu (ftz)</li>
+  <li>knirps (kni)</li>
+  <li>hunchback (hb)</li>
+  <p>  which one would be expected to have this expression pattern?</p>
+</div>
+</p>
 <!--<p id="status"> msg1</p>
 <p id="status2"> msg2 </p>
 <p id="status3"> msg3</p>
 -->
 <div class="img-zoom-container">
-  <img id="myimage" src="images/slides_and_maps/genotypeA_bgal.jpg" width="310" height="184">
+  <img id="myimage" class="img-main" src="images/slides_and_maps/genotypeA_bgal.jpg" >
   <div id="myresult" class="img-zoom-result"></div>
 </div>
 
