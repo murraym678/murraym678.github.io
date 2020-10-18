@@ -27,7 +27,7 @@ function printMessage(msgStr)
 
 function changeVideo()
 {
-  alert("currEmbryoId="+currEmbryoId.toString());
+  //alert("currEmbryoId="+currEmbryoId.toString());
   if (currEmbryoId==0) {
     return;
   }
@@ -190,7 +190,7 @@ function clickEmbryo(e)
 //    alert("here I am");
     digitStr = location.search.charAt(location.search.length-1);
     urlStr = "images/slides_and_maps/genotypeB_eve_bgal_z_"+digitStr+"_embryo_map.html";
-    alert("map= "+urlStr)
+    //alert("map= "+urlStr)
 
       $.ajax({
           type: "GET",
@@ -202,7 +202,7 @@ function clickEmbryo(e)
 
       myimg = document.getElementById("myimage");
        srcStr = "images/slides_and_maps/genotypeB_eve_bgal_z_"+digitStr+".jpg";
-       alert("THE NEW SLIDE IMAGE IS "+srcStr);       
+       //alert("THE NEW SLIDE IMAGE IS "+srcStr);       
        myimg.src = srcStr;
 
       result = document.getElementById("myresult");
@@ -230,20 +230,20 @@ function clickEmbryo(e)
 
   function channelChanged()
   {
-    printMessage("CH_BUT");
+    //printMessage("CH_BUT");
     var radioButtons = document.getElementsByName("channels");
     var mainImage = document.getElementById("myimage");
 
       if (radioButtons[0].checked == true) {
-        printMessage("0");
+      //  printMessage("0");
         channels = 0;
         mainImage.src = "images/slides_and_maps/genotypeB_eve_bgal_z_"+digitStr+".jpg";
       } else if (radioButtons[1].checked == true) {
-        printMessage("1");
+        //printMessage("1");
         channels = 1;
         mainImage.src = "images/slides_and_maps/C1-genotypeB_eve_bgal_z_"+digitStr+".jpg";
       } else { // radioButtons[2] should be checked
-        printMessage("2");
+        //printMessage("2");
         channels = 2;
         mainImage.src = "images/slides_and_maps/C2-genotypeB_eve_bgal_z_"+digitStr+".jpg";
       }
@@ -263,7 +263,7 @@ function clickEmbryo(e)
         mp4_ok = false;
         vidDiv.style["display"]="none";
         myGif.style["display"]="inline";
-      }
+      } 
       changeVideo();
   }
 
@@ -272,7 +272,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v5</h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v7</h1>
 <p class="TASK">TASK: Examine the embryos below to determine the identity of gene4.</p>
   <div class="GENOTYPE_STAIN">
   <h4>genotype A  =  gene1<sup>-</sup> / TM3 <sub>gene2-regulatory-element::lacZ </sub> </h4>
