@@ -12,18 +12,18 @@
     myhref_bz = document.getElementById("b_eve_bgal_z");
     myhref_bz.href = myhref_bz.href + "?"+mytext.value
     //alert("THE ID WAS "+mytext.value);
-    ga = document.getElementById("a_eve_bgal");
+    ga = document.getElementById("row1");
     ga.style.display = "block"
-    ga = document.getElementById("b_eve_bgal");
+    ga = document.getElementById("row2");
     ga.style.display = "block"
-    ga = document.getElementById("b_eve_bgal_z");
+    ga = document.getElementById("row3");
     ga.style.display = "block"
   }
 </script>
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v7 </h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v8 </h1>
 <div class="EXPLANATION">
 <h4><em>On this website you will encounter virtual slides of embryos 
   which will be used to answer questions in your Prac Worksheet. The embryos are of two genotypes.
@@ -83,9 +83,9 @@ There are 5 slides to look at which have had the following antibody stains appli
 </tr>
 
 
-<tr>
+<tr id="row1" style="display:none">
   <td>
-    <h3><a id="a_eve_bgal" href="genotypeA_eve_bgal.html" target="_blank" style="display:none"> GENEOTYPE A-EVE+betaGAL</a></h3>
+    <h3 ><a id="a_eve_bgal" href="genotypeA_eve_bgal.html" target="_blank" > GENEOTYPE A-EVE+betaGAL</a></h3>
   </td>
 <td>
   <p>	genotype A	Mouse-anti-Eve 
@@ -96,9 +96,9 @@ There are 5 slides to look at which have had the following antibody stains appli
 </tr>
 
 
-<tr>
+<tr id="row2" style="display:none">
   <td>
-    <h3><a id="b_eve_bgal" href="genotypeB_eve_bgal.html" target="_blank" style="display:none"> GENEOTYPE B-EVE+betaGAL</a></h3>
+    <h3><a id="b_eve_bgal" href="genotypeB_eve_bgal.html" target="_blank"> GENEOTYPE B-EVE+betaGAL</a></h3>
   </td>
 <td>
   <p>	genotype B	Mouse-anti-Eve 
@@ -110,9 +110,9 @@ There are 5 slides to look at which have had the following antibody stains appli
 </tr>
 
 
-<tr>
+<tr id="row3" style="display:none">
   <td>
-    <h3><a id="b_eve_bgal_z" href="genotypeB_eve_bgal_z.html" target="_blank" style="display:none"> GENEOTYPE B-EVE+betaGAL</a></h3>
+    <h3><a id="b_eve_bgal_z" href="genotypeB_eve_bgal_z.html" target="_blank"> GENEOTYPE B-EVE+betaGAL</a></h3>
   </td>
 <td>
   <p>	genotype B	Mouse-anti-Eve 
