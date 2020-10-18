@@ -2,6 +2,8 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="gene30004.css">
+
 <script>
   function remember_id(){
     mytext = document.getElementById("get_id");
@@ -12,12 +14,14 @@
     myhref_bz = document.getElementById("b_eve_bgal_z");
     myhref_bz.href = myhref_bz.href + "?"+mytext.value
     //alert("THE ID WAS "+mytext.value);
+
     ga = document.getElementById("row1");
     ga.style.display = "block"
     ga = document.getElementById("row2");
     ga.style.display = "block"
     ga = document.getElementById("row3");
     ga.style.display = "block"
+    
   }
 </script>
 </head>
@@ -37,97 +41,65 @@
   <li>knirps (kni)</li>
   <li>hunchback (hb)</li>
  
+ </div>
+
+
+<div class="GENOTYPE_STAIN">
+    <h3><a href="genotypeA_bgal.html" target="_blank"> GENOTYPE A - betaGal</a></h3>
+  <p>	genotype A	Chicken-anti-betaGal	Donkey-anti-Chicken-AP</p>
+</div>
+<div class="GENOTYPE_STAIN">
+
+    <h3><a href="genotypeB_bgal.html" target="_blank"> GENOTYPE B - betaGAL</a></h3>
+  <p>	genotype B	Chicken-anti-betaGal	Donkey-anti-Chicken-AP</p>
+</div>
+
+<div class="EXPLANATION">
   For some of the questions you'll be asked to choose embryos 
   from the slide that satisfy some criterion. Each of you has 
   been assigned <strong>different</strong> randomly generated slides based on 
   your student ID so you need to ensure that you are looking 
   at the right version of these slides. </em></h4>
-</div>
+  <p style="display: none;">To begin please enter your student ID.</p>
+  <label for="fname">StudentID:</label><br>
+  <input type="text" id="get_id" name="get_id" value="">
+  <input type="button" id="get_id_button" name="get_id_button" onclick="remember_id()" value="Submit">
+  <p></p>
+  There are 5 slides to look at which have had the following antibody stains applied:</p>
+  
 
-<p>To begin please enter your student ID.</p>
-<label for="fname">StudentID:</label><br>
-<input type="text" id="get_id" name="get_id" value="">
-<input type="button" id="get_id_button" name="get_id_button" onclick="remember_id()" value="Submit">
-<p></p>
-There are 5 slides to look at which have had the following antibody stains applied:</p>
-
-
-<table class="GENOTYPE_STAIN">
-  <!--
-  <tr>
-    <td>
-      <h3><a href="wildtype_eve.html" target="_blank"> SLIDE 1</a></h3>
-    </td>
-  <td>
-    <p>	Wild type	Mouse-anti-Eve	Goat-anti-Mouse-AP</p>
-  </td>
-</tr>
--->
-<tr>
-  <td>
-    <h3><a href="genotypeA_bgal.html" target="_blank"> GENOTYPE A - betaGal</a></h3>
-  </td>
-<td>
-  <p>	genotype A	Chicken-anti-betaGal	Donkey-anti-Chicken-AP</p>
-</td>
-</tr>
-
-
-<tr>
-  <td>
-    <h3><a href="genotypeB_bgal.html" target="_blank"> GENOTYPE B - betaGAL</a></h3>
-  </td>
-<td>
-  <p>	genotype B	Chicken-anti-betaGal	Donkey-anti-Chicken-AP</p>
-</td>
-</tr>
-
-
-<tr id="row1" style="display:none">
-  <td>
+<div id="row1" style="display:none;" class="GENOTYPE_STAIN">
     <h3 ><a id="a_eve_bgal" href="genotypeA_eve_bgal.html" target="_blank" > GENEOTYPE A-EVE+betaGAL</a></h3>
-  </td>
-<td>
   <p>	genotype A	Mouse-anti-Eve 
     AND
     Chicken-anti-betaGal	Goat-anti-Mouse-AP AND
     Donkey-anti-Chicken-Alexa488</p>
-</td>
-</tr>
+  </div>
 
 
-<tr id="row2" style="display:none">
-  <td>
-    <h3><a id="b_eve_bgal" href="genotypeB_eve_bgal.html" target="_blank"> GENEOTYPE B-EVE+betaGAL</a></h3>
-  </td>
-<td>
+
+  <div id="row2" style="display:none;" class="GENOTYPE_STAIN">
+      <h3><a id="b_eve_bgal" href="genotypeB_eve_bgal.html" target="_blank"> GENEOTYPE B-EVE+betaGAL</a></h3>
   <p>	genotype B	Mouse-anti-Eve 
     AND
     Chicken-anti-betaGal	Goat-anti-Mouse-Alexa568 
     AND
     Donkey-anti-Chicken-Alexa488</p>
-</td>
-</tr>
+  </div>
 
 
-<tr id="row3" style="display:none">
-  <td>
-    <h3><a id="b_eve_bgal_z" href="genotypeB_eve_bgal_z.html" target="_blank"> GENEOTYPE B-EVE+betaGAL</a></h3>
-  </td>
-<td>
+  <div id="row3" style="display:none;" class="GENOTYPE_STAIN">
+      <h3><a id="b_eve_bgal_z" href="genotypeB_eve_bgal_z.html" target="_blank"> GENEOTYPE B-EVE+betaGAL ZSTACK</a></h3>
   <p>	genotype B	Mouse-anti-Eve 
     AND
     Chicken-anti-betaGal	Goat-anti-Mouse-AP
     AND
     Donkey-anti-Chicken-Alexa488</p>
-</td>
-</tr>
-
-
-</table>
-
+  </div>
+</div>
+    
 <script>
-remember_id();
+//remember_id();
 </script> 
 
 </body>

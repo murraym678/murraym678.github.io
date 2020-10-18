@@ -11,6 +11,7 @@
   width:400px;
 }
 .GENOTYPE_STAIN {
+    border:1px solid #5a1a00;
   background-color: rgb(250, 195, 143);
   color:rgb(0, 0, 0);
   width:400px;
