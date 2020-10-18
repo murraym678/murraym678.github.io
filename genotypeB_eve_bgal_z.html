@@ -17,13 +17,14 @@ var mouseDown = false;
 var mp4_ok = true;
 var digitStr;
 
-
+/*
 function printMessage(msgStr)
 {
   mymsg = document.getElementById("mymsg");
   str = mymsg.textContent;
   mymsg.textContent = str+msgStr
 }
+*/
 
 function changeVideo()
 {
@@ -208,6 +209,9 @@ function clickEmbryo(e)
       result = document.getElementById("myresult");
       result.style.backgroundImage = "url('" + myimg.src + "')";
 
+      slide_id = document.getElementById("slide_id");
+      slide_id.textContent = "Slide for student:"+location.search.substring(2,location.search.length-1);
+
   });
   
   function processData(allText) {
@@ -272,23 +276,20 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v7</h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v8</h1>
 <p class="TASK">TASK: Examine the embryos below to determine the identity of gene4.</p>
   <div class="GENOTYPE_STAIN">
   <h4>genotype A  =  gene1<sup>-</sup> / TM3 <sub>gene2-regulatory-element::lacZ </sub> </h4>
   <h4>1˚: Mouse-anti-EVE + Chicken-anti-betaGal</h4>
   <h4>2˚: Goat-anti-mouse-Alexa488 + Donkey-anti-Chicken-AP</h4>
-  <h4> &nbsp</h4>
   </div>
 <div class="EXPLANATION">
-<p>This virtual slide shows embryos of genotypeB immunostained with a beta-galactosidase primary antibody. The secondary antibody is congugated to Alkaline Phosphatase (AP) which is producing a dark reaction product.</p>
-<p>Hence, the dark stain shows you where the lacZ gene is being expressed.
-  Since the lacZ gene is under the control of the regulatory region of gene4
-  it should recapitulate the expression pattern of the gene4 (it may not be exactly the same)
-
+<p>This virtual slide shows embryos of genotypeB immunostained with both anti-EVE and anti-beta-galactosidase primary antibodies.
+   The secondary antibodies are both fluorescent: bGAL is labelled in green with Alexa488, while EVE is labelled in red with Alexa568.</p>
   <p>Use your mouse to move the box around the slide. 
     The embryo under the box will be shown in more detail below. 
-    Use the Channel buttons to see the bgal or eve stains , or see both together.</p>
+    Use the Channel buttons to see the bgal or eve stains , or see both together.
+  </p>
   </div>
 
 <div class="img-zoom-container">
@@ -301,7 +302,7 @@ function clickEmbryo(e)
 <tr>
   <td>
   <table>
-    <tr> <td><h1 id="EmbryoID">Embryo ID:</h1> </td></tr>
+    <tr> <td><h3 id="EmbryoID">Embryo ID:</h3> </td></tr>
   <tr><td>  <div id="myresult" class="img-zoom-result"></div> </td></tr>
   <tr>
     <td>
@@ -336,11 +337,6 @@ function clickEmbryo(e)
   </video>
   </div>
   <img id="my_gif" src="images/gif/L_9.gif" style="display:block;width:100%"> </img>
-</td>
-</tr>
-<tr>
-  <td colspan="2"> 
-  <p id="mymsg">default mmessage</p>
 </td>
 </tr>
 </table>

@@ -202,6 +202,9 @@ function imageZoom(imgID, resultID) {
       result = document.getElementById("myresult");
       result.style.backgroundImage = "url('" + myimg.src + "')";
 
+      slide_id = document.getElementById("slide_id");
+      slide_id.textContent = "Slide for student:"+location.search.substring(2,location.search.length-1);
+
   });
   
   function processData(allText) {
@@ -251,6 +254,7 @@ function imageZoom(imgID, resultID) {
     The embryo under the box will be shown in more detail below. 
     Use the Channel buttons to see the bgal or eve stains , or see both together.</p>
   </div>
+  <h2 id="slide_id"> Slide for student: </h2>
 <div class="img-zoom-container">
   <img id="myimage" src="images/slides_and_maps/genotypeB_eve_bgal_0.jpg" width="500" height="188">
   <h1 id="EmbryoID">Embryo ID:</h1>
