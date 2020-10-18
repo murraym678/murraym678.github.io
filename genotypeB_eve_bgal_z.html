@@ -216,9 +216,12 @@ function clickEmbryo(e)
 
   });
   
-  function processData(allText) {
+  function processData(allText) 
+  {
       var allTextLines = allText.split(/\r\n|\n/);
       var headers = allTextLines[0].split(',');
+
+      alert("PROCESSING "+String(allTextLines.length));
   
       for (var i=1; i<allTextLines.length; i++) {
           var data = allTextLines[i].split(',');
@@ -278,7 +281,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v15</h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v16</h1>
 <p class="TASK">TASK: Examine the embryos below to determine the identity of gene4.</p>
   <div class="GENOTYPE_STAIN">
   <h4>genotype A  =  gene1<sup>-</sup> / TM3 <sub>gene2-regulatory-element::lacZ </sub> </h4>
