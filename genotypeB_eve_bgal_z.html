@@ -28,12 +28,13 @@ function printMessage(msgStr)
 
 function changeVideo()
 {
-  alert("CHANGE VIDEO currEmbryoId="+currEmbryoId.toString());
+  alert("INSIDE CHANGE VIDEO currEmbryoId="+String(currEmbryoId));
   if (currEmbryoId==0) {
     return;
   }
   // called when embryo changes, or mp4/gif, or channel
   if (mp4_ok){
+    alert("INSIDE CHANGE VIDEO mp4_OK=");
     if (channels==0) {
       animStr = "images/mp4/C1-"+lines[currEmbryoId][0]+".mp4"
     } else if (channels==1) {
@@ -48,6 +49,7 @@ function changeVideo()
     myVideo.load();  
     alert("SETTING MP4="+animStr);
   } else { // have to use the gifs
+    alert("INSIDE CHANGE VIDEO mp4_OK not true so using GIFS");
     if (channels==0) {
       gifStr = "images/gif/C1-"+lines[currEmbryoId][0]+".gif"
     } else if (channels==1) {
@@ -142,6 +144,7 @@ function clickEmbryo(e)
 //    mymsg.textContent = msgString;
     alert(msgString);
     currEmbryoId = minDistIndex;
+    alert("CCalling changeVideo with CurrentEmbryoID = "+String(currEmbryoId));
     changeVideo();
     embIdMsg = document.getElementById("EmbryoID");
     embIdMsg.textContent = "Embryo ID:"+String(minDistIndex);
@@ -281,7 +284,7 @@ function clickEmbryo(e)
 </head>
 <body>
 
-<h1>GENE30004 <em>Drosophila</em> Development Practical v19</h1>
+<h1>GENE30004 <em>Drosophila</em> Development Practical v20</h1>
 <p class="TASK">TASK: Examine the embryos below to determine the identity of gene4.</p>
   <div class="GENOTYPE_STAIN">
   <h4>genotype A  =  gene1<sup>-</sup> / TM3 <sub>gene2-regulatory-element::lacZ </sub> </h4>
