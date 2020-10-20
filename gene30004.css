@@ -9,20 +9,20 @@
   background-color: rgb(177, 219, 183); 
   color:rgb(2, 49, 7);
   font-size: 20px;
-  width:600px;
+  width:700px;
 }
 .GENOTYPE_STAIN {
     padding:10px;
     border:1px solid #5a1a00;
   background-color: rgb(250, 195, 143);
   color:rgb(0, 0, 0);
-  width:600px;
+  width:700px;
 }
 .EXPLANATION {
     padding:10px;
     background-color: rgb(212, 211, 209);
   color:rgb(0, 0, 0);
-  width:600px;
+  width:700px;
 }
 
 .img-main {
