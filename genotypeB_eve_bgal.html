@@ -101,8 +101,8 @@ function imageZoom(imgID, resultID) {
     
     for (var i=0; i<lines.length; i++) 
     {
-      xval = Number(lines[i][1])/8;
-      yval = Number(lines[i][2])/8;
+      xval = Number(lines[i][1])/4;
+      yval = Number(lines[i][2])/4;
        dx = xval - pos.x;
        dy = yval - pos.y;
        dsqrd = dx*dx + dy*dy;
@@ -253,7 +253,7 @@ function imageZoom(imgID, resultID) {
   </div>
   <h2 id="slide_id"> Slide for student: </h2>
 <div class="img-zoom-container">
-  <img id="myimage" src="images/slides_and_maps/genotypeB_eve_bgal_0.jpg" width="500" height="188">
+  <img id="myimage" src="images/slides_and_maps/genotypeB_eve_bgal_0.jpg" width="600" height="250">
   <h1 id="EmbryoID">Embryo ID:</h1>
   <div id="myresult" class="img-zoom-result"></div>
 </div>
