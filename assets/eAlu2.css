@@ -120,3 +120,10 @@
   background-color: #e4abd1;
   border: 5px solid rgb(41, 2, 2);
 }
+
+#eAluSymbol {
+    position:absolute;
+    left: 900px;
+    top: 100px;
+    z-index: 100;
+}
