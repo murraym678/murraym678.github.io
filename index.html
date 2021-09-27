@@ -7,6 +7,8 @@
 <script>
   function remember_id(){
     mytext = document.getElementById("get_id");
+    myhref_wt = document.getElementById("wt_eve");
+    myhref_wt.href = myhref_wt.href + "?"+mytext.value
     myhref_a = document.getElementById("a_eve_bgal");
     myhref_a.href = myhref_a.href + "?"+mytext.value
     myhref_b = document.getElementById("b_eve_bgal");
@@ -15,6 +17,8 @@
     myhref_bz.href = myhref_bz.href + "?"+mytext.value
     //alert("THE ID WAS "+mytext.value);
 
+    ga = document.getElementById("row0");
+    ga.style.display = "block"
     ga = document.getElementById("row1");
     ga.style.display = "block"
     ga = document.getElementById("row2");
@@ -44,16 +48,19 @@
 
 <div class="GENOTYPE_STAIN">
   <h2>WILDTYPE</h2>
-  <h3><a href="wildtype.html" target="_blank"> Wild type EVE expression patterns.</a></h3>
-  <h2>GENOTYPE A</h2>
-  <p>There are two slides to examine. <em>NOTE: if you can't see SLIDE 4 & SLIDE 5 you may need to submit your Student ID.</em></p>
+  <h3><a href="wildtype_eve.html" target="_blank"> Wild type EVE expression patterns.</a></h3>
+  <p>There should be a wild type slide to examine. <em>NOTE: if you can't see SLIDE 0 you need to submit your Student ID.</em></p>
+  <div id="row0" style="display:none;">
+    <h3 ><a id="wt_eve" href="wildtype_eve.html" target="_blank" > SLIDE 0: Wild type &nbsp; &nbsp; EVE/AP</a></h3>
+  </div>
+<h2>GENOTYPE A</h2>
+  <p>There are two slides to examine. <em>NOTE: if you can't see SLIDE 2 you need to submit your Student ID.</em></p>
  <h3><a href="genotypeA_bgal.html" target="_blank"> SLIDE 1: Genotype-A  &nbsp; &nbsp; beta-GAL/AP</a></h3>
     <div id="row1" style="display:none;">
       <h3 ><a id="a_eve_bgal" href="genotypeA_eve_bgal.html" target="_blank" > SLIDE 2: Genotype-A &nbsp; &nbsp; EVE/AP+betaGAL/GREEN</a></h3>
     </div>
     <h2>GENOTYPE B</h2>
-    <p>There are three slides to examine. as shown below. <em>
-     If you can't see SLIDE 4 & SLIDE 5 you may need to submit your Student ID.</em></p>
+    <p>There are three slides to examine. <em>If you can't see SLIDE 4 & SLIDE 5 you need to submit your Student ID.</em></p>
     <h3><a href="genotypeB_bgal.html" target="_blank"> SLIDE 3: Genotype-B betaGAL/AP</a></h3>
     <div id="row2" style="display:none;" >
       <h3><a id="b_eve_bgal" href="genotypeB_eve_bgal.html" target="_blank"> SLIDE 4: Genotype-B EVE/AP+betaGAL/GREEN</a></h3>
