@@ -26,15 +26,15 @@
 #bandSizeMinus {  left:200px; top:170px; }
 #bandSizePlus {  left:200px;  top:200px; }
 #band1800text {  left:230px;  top:200px; }
-#band1500text {  left:230px;  top:230px; }
-#band1000text {  left:230px;  top:260px; }
+#band1500text {  left:230px;  top:233px; }
+#band1000text {  left:230px;  top:266px; }
 /*#band900text {  left:230px;  top:290px; }*/
-#band800text {  left:230px;  top:320px; }
+#band800text {  left:230px;  top:299px; }
 /*#band700text {  left:230px;  top:350px; }*/
 /*#band600text {  left:230px;  top:380px; }*/
-#band500text {  left:230px;  top:410px; }
+#band500text {  left:230px;  top:332px; }
 /*#band400text {  left:230px;  top:440px; }*/
-#band300text {  left:230px;  top:470px; }
+#band300text {  left:230px;  top:365px; }
 #bandNearText {  left:260px;  top:505px; width:90px; }
 #bandFarText {  left:260px;  top:535px; width:90px; }
 
