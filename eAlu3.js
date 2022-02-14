@@ -6062,7 +6062,7 @@ if (reversed == null) { reversed = false; }
 
 	this.instance.setTransform(458.85,44.5,1,1,0,0,0,50,11);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(2).to({y:70.5},0).wait(2).to({x:460.85,y:44.5},0).wait(21).to({y:60},0).wait(1).to({y:64.5},0).wait(1).to({x:470.85,y:72.5},0).wait(1).to({x:460.85,y:44.5},0).wait(1).to({y:74.25},0).to({_off:true},60).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(2).to({y:70.5},0).wait(2).to({x:460.85,y:44.5},0).wait(21).to({y:60},0).wait(1).to({y:64.5},0).wait(1).to({x:470.85,y:72.5},0).wait(1).to({x:460.85,y:44.5},0).wait(1).to({y:74.25},0).wait(49).to({_off:true},11).wait(1));
 
 	// buttons
 	this.nextButton = new lib.NEXT_BUTTON();
@@ -6666,16 +6666,16 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/eAlu3_atlas_1.png?1644813772393", id:"eAlu3_atlas_1"},
-		{src:"images/eAlu3_atlas_2.png?1644813772394", id:"eAlu3_atlas_2"},
-		{src:"images/eAlu3_atlas_3.png?1644813772394", id:"eAlu3_atlas_3"},
-		{src:"images/eAlu3_atlas_4.png?1644813772394", id:"eAlu3_atlas_4"},
-		{src:"images/eAlu3_atlas_5.png?1644813772394", id:"eAlu3_atlas_5"},
-		{src:"images/eAlu3_atlas_6.png?1644813772394", id:"eAlu3_atlas_6"},
-		{src:"images/eAlu3_atlas_7.png?1644813772394", id:"eAlu3_atlas_7"},
-		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1644813772577", id:"lib/jquery-3.4.1.min.js"},
-		{src:"components/sdk/anwidget.js?1644813772577", id:"sdk/anwidget.js"},
-		{src:"components/ui/src/css.js?1644813772577", id:"an.CSS"}
+		{src:"images/eAlu3_atlas_1.png?1644814786794", id:"eAlu3_atlas_1"},
+		{src:"images/eAlu3_atlas_2.png?1644814786794", id:"eAlu3_atlas_2"},
+		{src:"images/eAlu3_atlas_3.png?1644814786795", id:"eAlu3_atlas_3"},
+		{src:"images/eAlu3_atlas_4.png?1644814786795", id:"eAlu3_atlas_4"},
+		{src:"images/eAlu3_atlas_5.png?1644814786795", id:"eAlu3_atlas_5"},
+		{src:"images/eAlu3_atlas_6.png?1644814786795", id:"eAlu3_atlas_6"},
+		{src:"images/eAlu3_atlas_7.png?1644814786795", id:"eAlu3_atlas_7"},
+		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1644814786994", id:"lib/jquery-3.4.1.min.js"},
+		{src:"components/sdk/anwidget.js?1644814786994", id:"sdk/anwidget.js"},
+		{src:"components/ui/src/css.js?1644814786994", id:"an.CSS"}
 	],
 	preloads: []
 };
