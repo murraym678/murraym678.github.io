@@ -1,7 +1,7 @@
 .eAluTextInput {
   position: absolute;
   text-align: center;
-  font-size:18px;
+  font-size:16px;
   width:120px;
   height:21px;
 }
@@ -11,11 +11,14 @@
   text-align: center;
   font-size:16px;
   border-style:solid;
-  border-width:1px;
-  border-color:rgb(19, 85, 30);
+  border-width:2px;
+  border-color:rgb(118, 3, 128);
   overflow: hidden;
 }
 
+.dna {
+  font-size:26px;
+}
 
 #fwdPrimerBPlabel { width:30px; height:25px; left:218px; top:295px;}
 #fwdPrimerLabel { width:340px; height:25px; left:20px; top:330px;}
@@ -28,12 +31,12 @@
 #band1800text {  left:230px;  top:200px; }
 #band1500text {  left:230px;  top:230px; }
 #band1000text {  left:230px;  top:260px; }
-/*#band900text {  left:230px;  top:290px; }*/
+#band900text {  left:230px;  top:290px; }
 #band800text {  left:230px;  top:320px; }
-/*#band700text {  left:230px;  top:350px; }*/
-/*#band600text {  left:230px;  top:380px; }*/
+#band700text {  left:230px;  top:350px; }
+#band600text {  left:230px;  top:380px; }
 #band500text {  left:230px;  top:410px; }
-/*#band400text {  left:230px;  top:440px; }*/
+#band400text {  left:230px;  top:440px; }
 #band300text {  left:230px;  top:470px; }
 #bandNearText {  left:260px;  top:505px; width:90px; }
 #bandFarText {  left:260px;  top:535px; width:90px; }
@@ -112,14 +115,14 @@
 #reselectPrimersBtnMMM {
   position:absolute; 
   left:500px; 
-  top:620px;
+  top:680px;
   font-size: 31px;
-  font-family:Courier New;
+  font-family:Lucida Console;
   text-align: center;
   text-shadow: 0 2px 2px rgba(255,255,255,0.75);
   vertical-align: middle;
   cursor: pointer;
-  background-color: #e4bed7;
+  background-color: #bee4bf;
   border: 5px solid rgb(41, 2, 2);
 }
 
@@ -128,7 +131,7 @@
   left:500px; 
   top:500px;
   font-size: 31px;
-  font-family:Courier New;
+  font-family:Lucida Console;
   text-align: center;
   text-shadow: 0 2px 2px rgba(255,255,255,0.75);
   vertical-align: middle;
