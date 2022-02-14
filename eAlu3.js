@@ -4879,7 +4879,7 @@ if (reversed == null) { reversed = false; }
 		
 		function reselectPrimersBtn_clicked(evt)
 		{
-			console.log('********************** reslect hit ');
+			console.log('********************** reslect hit ');	
 			_this.fwdPrimerLabel.textContent = " ";
 			_this.fwdPrimerBPlabel.textContent = " ";
 			_this.revPrimerLabel.textContent = " ";
@@ -4897,6 +4897,8 @@ if (reversed == null) { reversed = false; }
 			_this.genotypeFeedbackText.textContent = ' ';
 			_this.fwdPrimerSet = false;
 			_this.revPrimerSet = false;
+			_this.fwdPrimerPosition = -1;
+			_this.revPrimerPosition = -1;
 			_this.primerEvaluation = undefined;
 			_this.inputTextArr[0].textContent = ' FRED '; // upper band text input box
 			_this.inputTextArr[1].textContent = ' SALLY '; // upper band text input box
@@ -6666,16 +6668,16 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/eAlu3_atlas_1.png?1644814786794", id:"eAlu3_atlas_1"},
-		{src:"images/eAlu3_atlas_2.png?1644814786794", id:"eAlu3_atlas_2"},
-		{src:"images/eAlu3_atlas_3.png?1644814786795", id:"eAlu3_atlas_3"},
-		{src:"images/eAlu3_atlas_4.png?1644814786795", id:"eAlu3_atlas_4"},
-		{src:"images/eAlu3_atlas_5.png?1644814786795", id:"eAlu3_atlas_5"},
-		{src:"images/eAlu3_atlas_6.png?1644814786795", id:"eAlu3_atlas_6"},
-		{src:"images/eAlu3_atlas_7.png?1644814786795", id:"eAlu3_atlas_7"},
-		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1644814786994", id:"lib/jquery-3.4.1.min.js"},
-		{src:"components/sdk/anwidget.js?1644814786994", id:"sdk/anwidget.js"},
-		{src:"components/ui/src/css.js?1644814786994", id:"an.CSS"}
+		{src:"images/eAlu3_atlas_1.png?1644815517776", id:"eAlu3_atlas_1"},
+		{src:"images/eAlu3_atlas_2.png?1644815517776", id:"eAlu3_atlas_2"},
+		{src:"images/eAlu3_atlas_3.png?1644815517776", id:"eAlu3_atlas_3"},
+		{src:"images/eAlu3_atlas_4.png?1644815517776", id:"eAlu3_atlas_4"},
+		{src:"images/eAlu3_atlas_5.png?1644815517777", id:"eAlu3_atlas_5"},
+		{src:"images/eAlu3_atlas_6.png?1644815517777", id:"eAlu3_atlas_6"},
+		{src:"images/eAlu3_atlas_7.png?1644815517777", id:"eAlu3_atlas_7"},
+		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1644815517968", id:"lib/jquery-3.4.1.min.js"},
+		{src:"components/sdk/anwidget.js?1644815517968", id:"sdk/anwidget.js"},
+		{src:"components/ui/src/css.js?1644815517968", id:"an.CSS"}
 	],
 	preloads: []
 };
