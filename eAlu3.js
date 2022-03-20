@@ -5572,8 +5572,8 @@ if (reversed == null) { reversed = false; }
 			if (_this.currentFrame==44) {
 				s = genotypeFeedback(gReality[getLane(evt.currentTarget.id)],
 									getButtonGenotype(evt.currentTarget.id));
-				if (allCorrect()) {
-					s = s+'    NOW CLICK NEXT.';
+				if (allFourGenotypesCorrect()) {
+					s = s+'    NOW .... CLICK NEXT.';
 					_this.nextButton.alpha = 1;
 					_this.nextButton.mouseEnabled = true;
 				}
@@ -6131,7 +6131,7 @@ if (reversed == null) { reversed = false; }
 			}
 			updateVisibility();
 			console.log('1. UPDATING FRAMETEXT= '+_this.currentFrame+'in my_ClickToGoToAndStopAtFrame');
-			_this.frameText.textContent = 'FRAME['+_this.currentFrame+']';
+			_this.frameText.textContent = 'FFRAME['+_this.currentFrame+']';
 		}
 		
 		function next_ClickToGoToAndStopAtFrame()
@@ -6173,7 +6173,7 @@ if (reversed == null) { reversed = false; }
 				_this.hwCountMinusMinusAnswer.textContent = (freqQ*freqQ*cntALL).toFixed(2);
 			}
 			updateVisibility();
-			_this.frameText.textContent = 'FRAME['+_this.currentFrame+']';
+			_this.frameText.textContent = 'FFRAME['+_this.currentFrame+']';
 			console.log('1. UPDATING FRAMETEXT= '+_this.currentFrame+'in next_ClickToGoToAndStopAtFrame');
 		}
 		
@@ -6189,7 +6189,7 @@ if (reversed == null) { reversed = false; }
 		
 			_this.gotoAndStop( _this.keyFrames[_this.keyFrameIndex]);
 			updateVisibility();
-			_this.frameText.textContent = 'FRAME['+_this.currentFrame+']';
+			_this.frameText.textContent = 'FFRAME['+_this.currentFrame+']';
 			console.log('3. PREV  '+_this.keyFrameIndex+"   "+_this.currentFrame);
 			console.log('1. UPDATING FRAMETEXT= '+_this.currentFrame+'in back_ClickToGoToAndStopAtFrame');
 		}
@@ -6886,16 +6886,16 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/eAlu3_atlas_1.png?1647743641032", id:"eAlu3_atlas_1"},
-		{src:"images/eAlu3_atlas_2.png?1647743641032", id:"eAlu3_atlas_2"},
-		{src:"images/eAlu3_atlas_3.png?1647743641033", id:"eAlu3_atlas_3"},
-		{src:"images/eAlu3_atlas_4.png?1647743641033", id:"eAlu3_atlas_4"},
-		{src:"images/eAlu3_atlas_5.png?1647743641033", id:"eAlu3_atlas_5"},
-		{src:"images/eAlu3_atlas_6.png?1647743641033", id:"eAlu3_atlas_6"},
-		{src:"images/eAlu3_atlas_7.png?1647743641033", id:"eAlu3_atlas_7"},
-		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1647743641241", id:"lib/jquery-3.4.1.min.js"},
-		{src:"components/sdk/anwidget.js?1647743641241", id:"sdk/anwidget.js"},
-		{src:"components/ui/src/css.js?1647743641241", id:"an.CSS"}
+		{src:"images/eAlu3_atlas_1.png?1647744407587", id:"eAlu3_atlas_1"},
+		{src:"images/eAlu3_atlas_2.png?1647744407588", id:"eAlu3_atlas_2"},
+		{src:"images/eAlu3_atlas_3.png?1647744407588", id:"eAlu3_atlas_3"},
+		{src:"images/eAlu3_atlas_4.png?1647744407588", id:"eAlu3_atlas_4"},
+		{src:"images/eAlu3_atlas_5.png?1647744407588", id:"eAlu3_atlas_5"},
+		{src:"images/eAlu3_atlas_6.png?1647744407588", id:"eAlu3_atlas_6"},
+		{src:"images/eAlu3_atlas_7.png?1647744407588", id:"eAlu3_atlas_7"},
+		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1647744407798", id:"lib/jquery-3.4.1.min.js"},
+		{src:"components/sdk/anwidget.js?1647744407798", id:"sdk/anwidget.js"},
+		{src:"components/ui/src/css.js?1647744407798", id:"an.CSS"}
 	],
 	preloads: []
 };
