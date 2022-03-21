@@ -77,6 +77,18 @@
   border: 1px solid rgb(2, 52, 2);
 } 
 
+#bandSizeFeedbackText {
+  background-color:rgb(255, 255, 255);
+  color: #ff0162;
+  width:300px;
+  height:30px;
+  position:absolute; 
+  left:50px; 
+  top:230px;
+  font-size:18px;
+  border-style: none;
+} 
+
 #countPlusPlus  {  width:32px;  height:25px;  position:absolute;  left:235px;  top:570px; } 
 #countPlusMinus {  width:32px;   height:25px;   position:absolute;   left:392px;   top:570px;} 
 #countMinusMinus{  width:32px;   height:25px;   position:absolute;   left:554px;   top:570px;}

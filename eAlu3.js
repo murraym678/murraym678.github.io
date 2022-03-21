@@ -4632,6 +4632,7 @@ if (reversed == null) { reversed = false; }
 		_this.frameText = document.createElement("P");
 		_this.frameText.textContent = "FRAME[0]";
 		_this.frameText.style="position:absolute; top=0; left=300;";
+		_this.frameText.style.visibility = "hidden";
 		document.body.appendChild(_this.frameText);
 		console.log('1. added frametext');
 		
@@ -4642,18 +4643,23 @@ if (reversed == null) { reversed = false; }
 			console.log('bandSizeMinusChanged to:'+_this.bandSizeMinusTextBox.value);
 			_this.frameText.textContent = _this.bandSizeMinusTextBox.value;
 			if (bandSizesCorrect()) {
+				console.log('bandSizes CORRECT:');
+				_this.bandSizeFeedbackText.textContent = "CORRECT!! Now click NEXT.";
 				_this.nextButton.alpha = 1;
 				_this.nextButton.mouseEnabled = true;
 			} else {
+				_this.bandSizeFeedbackText.textContent = " "
 				_this.nextButton.alpha = 1;
 				_this.nextButton.mouseEnabled = true;
 			}
 		}
 		_this.bandSizePlusTextBox.addEventListener("input", BandSizePlusChanged );
 		function BandSizePlusChanged() {
-			console.log('bandSizePlusChanged to:'+_this.bandSizePlusTextBox.value);
+			console.log('bbandSizePlusChanged to:'+_this.bandSizePlusTextBox.value);
 			_this.frameText.textContent = _this.bandSizePlusTextBox.value;
 			if (bandSizesCorrect()) {
+				console.log('in plus changed and bandSizes CORRECT:');
+				_this.bandSizeFeedbackText.textContent = "CORRECT!! Now click NEXT.";
 				_this.nextButton.alpha = 1;
 				_this.nextButton.mouseEnabled = true;
 			} else {
@@ -4715,6 +4721,8 @@ if (reversed == null) { reversed = false; }
 		_this.revPrimerLabel = addParagraph("revPrimerLabel");
 		_this.totalBPlabel = addParagraph("totalBPlabel");
 		_this.genotypeFeedbackText = addParagraph("genotypeFeedbackText");
+		_this.bandSizeFeedbackText = addParagraph("bandSizeFeedbackText");
+		_this.bandSizeFeedbackText.textContent = " ";
 		_this.countPlusPlus = addParagraph("countPlusPlus");
 		_this.countPlusMinus = addParagraph("countPlusMinus");
 		_this.countMinusMinus = addParagraph("countMinusMinus");
@@ -5545,6 +5553,7 @@ if (reversed == null) { reversed = false; }
 			var plusSize = parseInt(_this.bandSizePlusTextBox.value);
 			var fnResult = (minusSize==_this.pcrProductSize) && (plusSize==(_this.pcrProductSize+300));
 			_this.frameText.textContent = 'bandSizesCorrect minusSize='+minusSize+' plusSize='+plusSize+' PCR='+_this.pcrProductSize+' result ='+fnResult;
+			return fnResult;
 		}
 		
 		function allFourGenotypesCorrect() 
@@ -6020,6 +6029,11 @@ if (reversed == null) { reversed = false; }
 			} else {
 				_this.genotypeFeedbackText.style.visibility = "hidden";
 			}
+			if ((_this.currentFrame>=29) && (_this.currentFrame<=29)) {
+				_this.bandSizeFeedbackText.style.visibility = "visible";
+			} else {
+				_this.bandSizeFeedbackText.style.visibility = "hidden";
+			}
 			if ((_this.currentFrame>=74) && (_this.currentFrame<=80)) {
 				_this.countPlusPlus.style.visibility = "visible";
 				_this.countPlusMinus.style.visibility = "visible";
@@ -6201,9 +6215,9 @@ if (reversed == null) { reversed = false; }
 	// Actions
 	this.movieClip_1 = new lib.Symbol175();
 	this.movieClip_1.name = "movieClip_1";
-	this.movieClip_1.setTransform(952.4,233.4,1.1761,0.9432,0,0,0,9.7,7.6);
+	this.movieClip_1.setTransform(952.1,233.75,1.1758,0.943,0,0,0,10.1,8.1);
 
-	this.timeline.addTween(cjs.Tween.get(this.movieClip_1).wait(25).to({regX:9.5,regY:7.9,x:949.1,y:238.6},0).wait(9).to({_off:true},40).wait(16));
+	this.timeline.addTween(cjs.Tween.get(this.movieClip_1).wait(25).to({regX:9.8,regY:8.3,x:948.6,y:238.85},0).wait(9).to({_off:true},40).wait(16));
 
 	// populationButtons
 	this.populationButton13 = new lib.PopulationButton();
@@ -6886,16 +6900,16 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/eAlu3_atlas_1.png?1647744407587", id:"eAlu3_atlas_1"},
-		{src:"images/eAlu3_atlas_2.png?1647744407588", id:"eAlu3_atlas_2"},
-		{src:"images/eAlu3_atlas_3.png?1647744407588", id:"eAlu3_atlas_3"},
-		{src:"images/eAlu3_atlas_4.png?1647744407588", id:"eAlu3_atlas_4"},
-		{src:"images/eAlu3_atlas_5.png?1647744407588", id:"eAlu3_atlas_5"},
-		{src:"images/eAlu3_atlas_6.png?1647744407588", id:"eAlu3_atlas_6"},
-		{src:"images/eAlu3_atlas_7.png?1647744407588", id:"eAlu3_atlas_7"},
-		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1647744407798", id:"lib/jquery-3.4.1.min.js"},
-		{src:"components/sdk/anwidget.js?1647744407798", id:"sdk/anwidget.js"},
-		{src:"components/ui/src/css.js?1647744407798", id:"an.CSS"}
+		{src:"images/eAlu3_atlas_1.png?1647821239586", id:"eAlu3_atlas_1"},
+		{src:"images/eAlu3_atlas_2.png?1647821239587", id:"eAlu3_atlas_2"},
+		{src:"images/eAlu3_atlas_3.png?1647821239587", id:"eAlu3_atlas_3"},
+		{src:"images/eAlu3_atlas_4.png?1647821239587", id:"eAlu3_atlas_4"},
+		{src:"images/eAlu3_atlas_5.png?1647821239587", id:"eAlu3_atlas_5"},
+		{src:"images/eAlu3_atlas_6.png?1647821239587", id:"eAlu3_atlas_6"},
+		{src:"images/eAlu3_atlas_7.png?1647821239587", id:"eAlu3_atlas_7"},
+		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1647821239792", id:"lib/jquery-3.4.1.min.js"},
+		{src:"components/sdk/anwidget.js?1647821239792", id:"sdk/anwidget.js"},
+		{src:"components/ui/src/css.js?1647821239792", id:"an.CSS"}
 	],
 	preloads: []
 };
