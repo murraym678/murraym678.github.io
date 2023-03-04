@@ -1,0 +1,138 @@
+.eAluTextInput {
+  position: absolute;
+  text-align: center;
+  font-size:16px;
+  width:120px;
+  height:21px;
+}
+
+.primertext {
+  position: absolute;
+  text-align: center;
+  font-size:16px;
+  border-style:solid;
+  border-width:6px;
+  border-color:rgb(72, 3, 128);
+  overflow: hidden;
+}
+
+
+#fwdPrimerBPlabel { width:30px; height:25px; left:218px; top:295px;}
+#fwdPrimerLabel { width:340px; height:25px; left:20px; top:330px;}
+#revPrimerBPlabel { width:30px; height:25px; left:221px; top:380px;}
+#revPrimerLabel { width:340px; height:25px; left:24px; top:420px;}
+#totalBPlabel { width:50px; height:25px; left:360px; top:483px;}
+
+#bandSizeMinus {  left:200px; top:170px; }
+#bandSizePlus {  left:200px;  top:200px; }
+#band1800text {  left:230px;  top:200px; }
+#band1500text {  left:230px;  top:230px; }
+#band1000text {  left:230px;  top:260px; }
+#band900text {  left:230px;  top:290px; }
+#band800text {  left:230px;  top:320px; }
+#band700text {  left:230px;  top:350px; }
+#band600text {  left:230px;  top:380px; }
+#band500text {  left:230px;  top:410px; }
+#band400text {  left:230px;  top:440px; }
+#band300text {  left:230px;  top:470px; }
+#bandNearText {  left:260px;  top:505px; width:90px; }
+#bandFarText {  left:260px;  top:535px; width:90px; }
+
+.myrad {
+    display:none;
+    }
+    
+.myrad + .mylab {
+    display:inline-block;
+    margin:-2px;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-family:Lucida Console;
+    text-align: center;
+    text-shadow: 0 2px 2px rgba(255,255,255,0.75);
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #f5f5f5;
+    border: 2px solid #ccc;
+}
+        
+.myrad:hover + .mylab {
+    background-color: #f5d5d5;
+}
+
+.myrad:checked + .mylab {
+    background-color: #f56565;
+}
+
+
+
+#genotypeFeedbackText {
+  background-color:rgb(250, 249, 176);
+  width:300px; 
+  position:absolute; 
+  left:50px; 
+  top:350px;
+  font-size:18px;
+  border: 1px solid rgb(2, 52, 2);
+} 
+
+#countPlusPlus  {  width:32px;  height:25px;  position:absolute;  left:235px;  top:585px; } 
+#countPlusMinus {  width:32px;   height:25px;   position:absolute;   left:392px;   top:585px;} 
+#countMinusMinus{  width:32px;   height:25px;   position:absolute;   left:554px;   top:585px;}
+#countTotal     {  width:32px;   height:25px;  position:absolute;   left:840px;   top:585px;}
+
+#freqPlus          {  width:40px;   height:25px;   position:absolute;   left:675px;   top:175px;}
+#freqMinus         {  width:40px;   height:25px;   position:absolute;   left:675px;   top:220px;}
+#freqPlusPlus      {  width:40px;   height:25px;   position:absolute;   left:650px;   top:300px;}
+#freqPlusMinus     {  width:40px;   height:25px;   position:absolute;   left:790px;   top:300px;}
+#freqMinusMinus    {  width:40px;   height:25px;   position:absolute;   left:930px;   top:300px;}
+#hwFreqPlusPlus      {  width:40px;   height:25px;   position:absolute;   left:650px;   top:370px;}
+#hwFreqPlusMinus     {  width:40px;   height:25px;   position:absolute;   left:790px;   top:370px;}
+#hwFreqMinusMinus    {  width:40px;   height:25px;   position:absolute;   left:930px;   top:370px;}
+#hwCountPlusPlus   {  width:40px;   height:25px;   position:absolute;   left:650px;   top:440px;}
+#hwCountPlusMinus  {  width:40px;   height:25px;   position:absolute;   left:790px;   top:440px;}
+#hwCountMinusMinus {  width:40px;   height:25px;   position:absolute;   left:930px;   top:440px;}
+
+#freqPlusAnswer          {  width:40px;   height:25px;   position:absolute;   left:735px;   top:155px; color:darkgreen;}
+#freqMinusAnswer         {  width:40px;   height:25px;   position:absolute;   left:735px;   top:200px; color:darkgreen;}
+#freqPlusPlusAnswer      {  width:40px;   height:25px;   position:absolute;   left:700px;   top:285px; color:darkgreen;}
+#freqPlusMinusAnswer     {  width:40px;   height:25px;   position:absolute;   left:840px;   top:285px; color:darkgreen;}
+#freqMinusMinusAnswer    {  width:40px;   height:25px;   position:absolute;   left:980px;   top:285px; color:darkgreen;}
+#hwFreqPlusPlusAnswer      {  width:40px;   height:25px;   position:absolute;   left:700px;   top:355px; color:darkgreen;}
+#hwFreqPlusMinusAnswer     {  width:40px;   height:25px;   position:absolute;   left:840px;   top:355px; color:darkgreen;}
+#hwFreqMinusMinusAnswer    {  width:40px;   height:25px;   position:absolute;   left:980px;   top:355px; color:darkgreen;}
+#hwCountPlusPlusAnswer   {  width:40px;   height:25px;   position:absolute;   left:700px;   top:425px; color:darkgreen;}
+#hwCountPlusMinusAnswer  {  width:40px;   height:25px;   position:absolute;   left:840px;   top:425px; color:darkgreen;}
+#hwCountMinusMinusAnswer {  width:40px;   height:25px;   position:absolute;   left:980px;   top:425px; color:darkgreen;}
+
+
+
+
+#reselectPrimersBtnMMM {
+  position:absolute; 
+  left:500px; 
+  top:680px;
+  font-size: 31px;
+  font-family:Courier New;
+  text-align: center;
+  text-shadow: 0 2px 2px rgba(255,255,255,0.75);
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #e4bed7;
+  border: 5px solid rgb(41, 2, 2);
+}
+
+#reselectPopulation {
+  position:absolute; 
+  left:500px; 
+  top:500px;
+  font-size: 31px;
+  font-family:Courier New;
+  text-align: center;
+  text-shadow: 0 2px 2px rgba(255,255,255,0.75);
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #e4bed7;
+  border: 5px solid rgb(41, 2, 2);
+}
